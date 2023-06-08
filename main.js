@@ -41,11 +41,12 @@ form.addEventListener("submit", async (event) => {
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
 
       const sunrise = document.createElement("h4");
-
-      sunrise.textContent = `Sunrise: ${s_rise}`;
+      const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
+      sunrise.textContent = `Sunrise: ${sunriseTime}`;
 
       const sunset = document.createElement("h4");
-      sunset.textContent = `Sunset: ${s_set}`;
+      const sunsetTime = s_set[0].split("T")[1].slice(0, 5);
+      sunset.textContent = `Sunset: ${sunsetTime}`;
 
       const windSpeedHeading = document.createElement("h4");
       windSpeedHeading.textContent = `Wind Speed: ${current_windSpeed} km/h`;
