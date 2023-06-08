@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-one: ;
+  --color-two: ;
+  --color-three: #e0f3f3;
+}
+body {
+  background-color: var(--color-three);
+}

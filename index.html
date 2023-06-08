@@ -12,6 +12,48 @@
     <title>TD Weather APP</title>
   </head>
   <body>
+    <header>
+      <h1>TD Weather App</h1>
+    </header>
+    <main class="center">
+      <section tabindex="0" id="search-section" class="stack-m">
+        <form
+          action=""
+          method="POST"
+          id="form"
+          class=""
+          aria-label="search bar"
+          tabindex="0"
+        >
+          <label for="postcode">Post code</label>
+          <input
+            id="postcode"
+            name="postcode"
+            type="search"
+            required
+            placeholder="Enter postcode e.g SW1A 2AA"
+          />
+          <button type="submit" id="submit-btn" class="">Search</button>
+        </form>
+      </section>
+      <section id="stats-section">
+        <div id="location">
+          <h2 id="post-code"></h2>
+          <h2 id="county"></h2>
+          <div id="map"><h3>Placeholder for map</h3></div>
+        </div>
+        <div id="weather-today">
+          <h2 id="current">Current Weather</h2>
+        </div>
+        <div id="weather-forecast">
+          <h2 id="current">7 day forecast</h2>
+        </div>
+      </section>
+    </main>
+    <footer tabindex="0" class="footer column stack-l">
+      <p>Copyright @ 2023 Tess Phillips & Deepashri Dali</p>
+    </footer>
+
     <script src="./main.js" type="module"></script>
   </body>
 </html>
