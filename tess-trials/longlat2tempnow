@@ -1,0 +1,54 @@
+const form = document.querySelector("form");
+const output = document.querySelector("output");
+
+form.addEventListener("submit", (event) => {
+  // stop the form submitting and reloading the page
+  event.preventDefault();
+
+  // clear out any previous results
+  output.innerHTML = "";
+
+  // get the value of the field with name="pokemon"
+//   const formData = new FormData(form);
+  const longlat = [-0.157138,51.593724]
+  const todaysdate = `2023-06-08`
+
+  // request that pokemon from PokeAPI
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${longlat[1]}&longitude=${longlat[0]}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&forecast_days=1&start_date=${todaysdate}&end_date=${todaysdate}&timezone=Europe%2FLondon`)
+    .then((response) => {
+      if (!response.ok) throw new Error(response.status);
+      return response.json();
+    })
+ 
+    // if we get a successful response
+    .then((dailyWeatherData) => {
+        console.log(dailyWeatherData)
+
+        
+      const sunrise = document.createElement("p");
+      sunrise.textContent = dailyWeatherData.daily.sunrise + " sunrise"
+
+      const sunset = document.createElement("p");
+      sunset.textContent = dailyWeatherData.daily.sunset + " sunset"
+
+      const tempMax = document.createElement("p");
+      tempMax.textContent = dailyWeatherData.daily.temperature_2m_max + " tempmax"
+
+      const tempMin = document.createElement("p");
+      tempMin.textContent = dailyWeatherData.daily.temperature_2m_min + " tempmin"
+
+      output.append(sunrise,sunset,tempMax,tempMin);
+      // output.append(heading);
+    })
+    // if the request is unsuccessful
+    .catch((error) => {
+      console.log(error);
+      if (error.message === "404") {
+        output.textContent = `⚠️ Couldn't find "${longlat}"`;
+      } else {
+        output.textContent = "⚠️ Something went wrong";
+      }
+    });
+});
+
+// store long: -0.157138, lat: 51.593724

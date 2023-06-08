@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tess-trial</title>
+    <style>
+      label,
+      output {
+        display: block;
+      }
+      label {
+        margin-bottom: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1>Weather</h1>
+      <label for="postcode">Postcode</label>
+      <input id="postcode" name="postcode" type="search" required />
+      <button type="submit">Search</button>
+      <output></output>
+    </form>
+
+
+    <!-- only run 1 at a time! -->
+    <script src="postcode2longlat.js"> </script>
+    <!-- <script src="longlat2tempnow"> </script> -->
+  </body>
+</html>
