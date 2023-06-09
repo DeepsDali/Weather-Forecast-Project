@@ -4,10 +4,11 @@ import { getMap } from "./utils/getMap.js";
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
 const current = document.querySelector("#current");
-
+let image = null;
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  current.innerHTML = "";
   output.innerHTML = "";
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode");
@@ -20,11 +21,17 @@ form.addEventListener("submit", async (event) => {
     let lat = coordinates.latitude;
     let lon = coordinates.longitude;
     const imageURL = await getMap(lat, lon);
-    const image = document.createElement("img");
-    image.src = imageURL;
-    image.alt = "";
     const mapDiv = document.querySelector("#map");
-    mapDiv.append(image);
+    const newImage = document.createElement("img");
+    newImage.src = imageURL;
+    newImage.alt = "map of searched postcode";
+    if (image) {
+      // If a previous map exists, remove it from the DOM
+      mapDiv.removeChild(image);
+    }
+    // Append the new map to the mapDiv
+    image = newImage; // Update the reference to the new map
+    mapDiv.appendChild(newImage);
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
