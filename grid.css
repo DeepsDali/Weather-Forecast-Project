@@ -1,0 +1,36 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'header header header header'
+    'nothing1 input input nothing2'
+    'tempnow sun city postcodeoutput'
+    'tempnow sun map map'
+    'fore fore map map'
+    'fore fore map map'
+    'footer footer footer footer';
+
+
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    height:98vh
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  
+  .item1 { grid-area: header;}
+  .item2 { grid-area: nothing1; }
+  .item3 { grid-area: input; }
+  .item4 { grid-area: nothing2; }
+  .item5 { grid-area: tempnow; }
+  .item6 { grid-area: sun;}
+  .item7 { grid-area: city; }
+  .item8 { grid-area: postcodeoutput; }
+  .item9 { grid-area: map; }
+  .item10 { grid-area: fore; }
+  .item11 { grid-area: footer; }
