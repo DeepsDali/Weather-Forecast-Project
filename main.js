@@ -6,11 +6,13 @@ const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
 const current = document.querySelector("#current");
+const currentsun = document.querySelector("#currentsun");
 let image = null;
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   current.innerHTML = "";
+  currentsun.innerHTML = "";
   output.innerHTML = "";
   county.innerHTML = "";
   const formData = new FormData(form);
@@ -73,8 +75,8 @@ form.addEventListener("submit", async (event) => {
 
       current.appendChild(temperatureHeading);
       current.appendChild(windSpeedHeading);
-      current.appendChild(sunrise);
-      current.appendChild(sunset);
+      currentsun.appendChild(sunrise);
+      currentsun.appendChild(sunset);
 
       console.log(resData);
     } else {

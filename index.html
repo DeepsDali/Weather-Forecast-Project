@@ -9,52 +9,64 @@
     />
     <meta name="description" content="Weather App" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./grid.css" />
     <title>TD Weather APP</title>
   </head>
   <body>
-    <header>
-      <h1>TD Weather App</h1>
-    </header>
-    <main class="center">
-      <section tabindex="0" id="search-section" class="stack-m">
-        <form
-          action=""
-          method="POST"
-          id="form"
-          class=""
-          aria-label="search bar"
-          tabindex="0"
-        >
-          <label for="postcode">Post code</label>
-          <input
-            id="postcode"
-            name="postcode"
-            type="search"
-            required
-            placeholder="Enter postcode e.g SW1A 2AA"
-          />
-          <button type="submit" id="submit-btn" class="">Search</button>
-        </form>
-      </section>
-      <section id="stats-section">
-        <div id="location">
+    <div class="grid-container">
+      <div class="header">
+        <h1>TD Weather App</h1>
+      </div>
+
+
+      <!-- <main class="center"> -->
+        <div tabindex="0" id="search-section" class="inputgrid stack-m">
+          <form
+            action=""
+            method="POST"
+            id="form"
+            class=""
+            aria-label="search bar"
+            tabindex="0"
+          >
+            <label for="postcode">Post code</label>
+            <input
+              id="postcode"
+              name="postcode"
+              type="search"
+              required
+              placeholder="Enter postcode e.g SW1A 2AA"
+            />
+            <button type="submit" id="submit-btn" class="">Search</button>
+          </form>
+        </div>
+
+        <!-- <div class="postcodeoutput"></div>
+        <div class="city"></div> -->
+
+        <div class="mapgrid" id="location">
+          <!-- <h4>Location Info</h4> -->
           <h2 id="post-code"></h2>
           <h2 id="county"></h2>
           <div id="map"></div>
         </div>
-        <div id="weather-today">
-          <h2 id="current">Current Weather</h2>
+        <div class="tempnowgrid" id="weather-today">
+          <h4 id="current">Current Weather</h4>
           <div id="current"></div>
         </div>
-        <div id="weather-forecast">
-          <h2 id="current">7 day forecast</h2>
-        </div>
-      </section>
-    </main>
-    <footer tabindex="0" class="footer column stack-l">
-      <p>Copyright @ 2023 Tess Phillips & Deepashri Dali</p>
-    </footer>
 
+        <div class="sungrid" id="weather-today">
+          <h4 id="currentsun">Todays Sunset/Sunrise</h4>
+          <div id="currentsun"></div>
+        </div>
+        
+        <div class="foregrid" id="weather-forecast">
+          <h4 id="current">7 day forecast</h4>
+        </div>
+      <div tabindex="0" class="footer column stack-l">
+        <p>Copyright @ 2023 Tess Phillips & Deepashri Dali</p>
+      </div>
+    </div>
     <script src="./main.js" type="module"></script>
   </body>
 </html>

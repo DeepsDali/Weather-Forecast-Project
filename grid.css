@@ -2,35 +2,62 @@
     display: grid;
     grid-template-areas:
     'header header header header'
-    'nothing1 input input nothing2'
-    'tempnow sun city postcodeoutput'
-    'tempnow sun map map'
-    'fore fore map map'
-    'fore fore map map'
+    'inputgrid inputgrid inputgrid inputgrid '
+    'tempnowgrid sungrid mapgrid mapgrid'
+    'tempnowgrid sungrid mapgrid mapgrid'
+    'foregrid foregrid mapgrid mapgrid'
+    'foregrid foregrid mapgrid mapgrid'
     'footer footer footer footer';
-
-
-    gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-    height:98vh
-  }
+    /* 'item1 item1 item1 item1'
+    'item2 item3 item3 item4'
+    'item5 item6 item7 item8'
+    'item5 item6 item9 item9'
+    'item10 item10 item9 item9'
+    'item10 item10 item9 item9'
+    'item11 item11 item11 item11'; */
+    gap: 5px;
+    /* background-color: #2196F3; */
+    padding: 5px;
+    width:100%;
+    /* height:98vh */
+}
   
-  .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-  }
+.grid-container > div {
+background-color: rgba(255, 255, 255, 0.8);
+text-align: center;
+padding: 20px 0;
+font-size: 30px;
+}
   
-  .item1 { grid-area: header;}
-  .item2 { grid-area: nothing1; }
-  .item3 { grid-area: input; }
-  .item4 { grid-area: nothing2; }
-  .item5 { grid-area: tempnow; }
-  .item6 { grid-area: sun;}
-  .item7 { grid-area: city; }
-  .item8 { grid-area: postcodeoutput; }
-  .item9 { grid-area: map; }
-  .item10 { grid-area: fore; }
-  .item11 { grid-area: footer; }
+.header { grid-area: header;    width:100%;}
+.inputgrid { grid-area: inputgrid; }
+.tempnowgrid { grid-area: tempnowgrid;}
+.sungrid { grid-area: sungrid;}
+.county { grid-area: city; }
+.postcodeoutput { grid-area: postcodeoutput; }
+.mapgrid { grid-area: mapgrid; }
+.foregrid { grid-area: foregrid; }
+.footer { grid-area: footer; }
+
+@media only screen and (max-width: 600px) {
+      .grid-container{
+        display: grid;
+        grid-template-areas:
+        'header header'
+        'inputgrid inputgrid'
+        'tempnowgrid sungrid'
+        'tempnowgrid sungrid'
+        'foregrid foregrid'
+        'foregrid foregrid'
+        'mapgrid mapgrid'
+        'mapgrid mapgrid'
+        'mapgrid mapgrid'
+        'nothing1 nothing2'
+        'footer footer';  
+        gap: 10px;
+      background-color: pink;
+      padding: 1px;
+      height:98vh  ;
+      /* font-size: xx-small; */
+      }
+    }
