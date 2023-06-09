@@ -1,4 +1,5 @@
 import { getLongLat } from "./utils/getLongLat.js";
+import { getMap } from "./utils/getMap.js";
 
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
@@ -18,6 +19,12 @@ form.addEventListener("submit", async (event) => {
     const coordinates = await getLongLat(searchedPostcode);
     let lat = coordinates.latitude;
     let lon = coordinates.longitude;
+    const imageURL = await getMap(lat, lon);
+    const image = document.createElement("img");
+    image.src = imageURL;
+    image.alt = "";
+    const mapDiv = document.querySelector("#map");
+    mapDiv.append(image);
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
