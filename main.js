@@ -1,8 +1,10 @@
 import { getLongLat } from "./utils/getLongLat.js";
+import { getLocation } from "./utils/getLocation.js";
 import { getMap } from "./utils/getMap.js";
 
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
+const county = document.querySelector("#county");
 const current = document.querySelector("#current");
 let image = null;
 form.addEventListener("submit", async (event) => {
@@ -10,6 +12,7 @@ form.addEventListener("submit", async (event) => {
 
   current.innerHTML = "";
   output.innerHTML = "";
+  county.innerHTML = "";
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode");
 
@@ -17,6 +20,9 @@ form.addEventListener("submit", async (event) => {
   form.reset();
 
   try {
+    const location = await getLocation(searchedPostcode);
+    let loc = location.admin_district;
+    county.innerHTML = loc;
     const coordinates = await getLongLat(searchedPostcode);
     let lat = coordinates.latitude;
     let lon = coordinates.longitude;
