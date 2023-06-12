@@ -7,6 +7,7 @@ const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
 const current = document.querySelector("#current");
 const currentsun = document.querySelector("#currentsun");
+
 let image = null;
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -15,6 +16,7 @@ form.addEventListener("submit", async (event) => {
   currentsun.innerHTML = "";
   output.innerHTML = "";
   county.innerHTML = "";
+
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode");
 
@@ -45,22 +47,30 @@ form.addEventListener("submit", async (event) => {
     const month = String(today.getMonth() + 1).padStart(2, "0");
     const day = String(today.getDate()).padStart(2, "0");
     const date = `${year}-${month}-${day}`;
+    // const enddate = `${year}-${month}-${day+7}`;
     console.log(date);
 
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,sunset&current_weather=true&start_date=${date}&end_date=${date}&timezone=Europe%2FLondon`;
+    // const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,sunset&current_weather=true&start_date=${date}&end_date=${date}&timezone=Europe%2FLondon`;
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
 
     const response = await fetch(apiUrl);
 
     if (response.ok) {
       const resData = await response.json();
+      console.log(resData);
 
       let current_temp = resData.current_weather.temperature;
       let current_windSpeed = resData.current_weather.windspeed;
       let s_rise = resData.daily.sunrise;
       let s_set = resData.daily.sunset;
+      let fore_max = resData.daily.temperature_2m_max
+      let fore_min = resData.daily.temperature_2m_min
 
       const temperatureHeading = document.createElement("h4");
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
+
+      const windSpeedHeading = document.createElement("h4");
+      windSpeedHeading.textContent = `Wind Speed: ${current_windSpeed} km/h`;
 
       const sunrise = document.createElement("h4");
       const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
@@ -70,15 +80,28 @@ form.addEventListener("submit", async (event) => {
       const sunsetTime = s_set[0].split("T")[1].slice(0, 5);
       sunset.textContent = `Sunset: ${sunsetTime}`;
 
-      const windSpeedHeading = document.createElement("h4");
-      windSpeedHeading.textContent = `Wind Speed: ${current_windSpeed} km/h`;
+      // forecast
+      for (let i=1;i<8;i++){
+        const day = document.createElement("div");
+        const forecast_max = document.createElement("h4");
+        forecast_max.textContent = `Max temp: ${fore_max[i-1]}`;
+        day.appendChild(forecast_max);
+
+        const forecast_min = document.createElement("h4");
+        forecast_min.textContent = `Min temp: ${fore_min[i-1]}`;
+        day.appendChild(forecast_min);
+
+        document.querySelector(`#day${i}`).appendChild(day);
+
+      }
+
+  
 
       current.appendChild(temperatureHeading);
       current.appendChild(windSpeedHeading);
       currentsun.appendChild(sunrise);
       currentsun.appendChild(sunset);
 
-      console.log(resData);
     } else {
       throw new Error(response.status);
     }
