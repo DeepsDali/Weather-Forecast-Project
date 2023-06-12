@@ -41,9 +41,9 @@ main {
   width: 98vw;
   grid-template-areas:
     "inputgrid inputgrid inputgrid inputgrid"
-    "mapgrid mapgrid mapgrid mapgrid"
     "tempnowgrid sungrid sungrid sungrid"
-    "foregrid foregrid foregrid foregrid";
+    "foregrid foregrid foregrid foregrid"
+    "mapgrid mapgrid mapgrid mapgrid";
   gap: 5px;
 }
 
