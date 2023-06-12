@@ -73,6 +73,19 @@ main > section {
   grid-area: foregrid;
 }
 
+/* forecast */
+.gridmain {
+  display: grid;
+  width: 98vw;
+  grid-template-areas:
+    "forehead forehead forehead forehead forehead forehead forehead"
+    "day day day day day day day ";
+}
+
+.forehead{
+  grid-area: forehead
+}
+
 @media only screen and (min-width: 768px) {
   .grid-container {
     grid-template-areas:
