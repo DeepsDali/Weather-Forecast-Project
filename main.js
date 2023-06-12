@@ -71,18 +71,22 @@ form.addEventListener("submit", async (event) => {
       console.log(resData);
 
       let current_temp = resData.current_weather.temperature;
-      // let current_temp_code = resData.current_weather.weathercode;
+      let current_temp_code = resData.current_weather.weathercode;
       let current_windSpeed = resData.current_weather.windspeed;
       let s_rise = resData.daily.sunrise;
       let s_set = resData.daily.sunset;
       let fore_max = resData.daily.temperature_2m_max
       let fore_min = resData.daily.temperature_2m_min
+      let fore_code = resData.daily.weathercode
 
       const temperatureHeading = document.createElement("h4");
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
 
       const windSpeedHeading = document.createElement("h4");
       windSpeedHeading.textContent = `Wind Speed: ${current_windSpeed} km/h`;
+
+      const current_icon = document.createElement("h4");
+      current_icon.textContent = `code: ${current_temp_code} `;
 
       const sunrise = document.createElement("h4");
       const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
@@ -103,12 +107,17 @@ form.addEventListener("submit", async (event) => {
         forecast_min.textContent = `Min temp: ${fore_min[i-1]}`;
         day.appendChild(forecast_min);
 
+        const forecast_code = document.createElement("h4");
+        forecast_min.textContent = `code: ${fore_code[i-1]}`;
+        day.appendChild(forecast_code);
+
         document.querySelector(`#day${i}`).appendChild(day);
 
       }
 
       current.appendChild(temperatureHeading);
       current.appendChild(windSpeedHeading);
+      current.appendChild(current_icon);
       currentsun.appendChild(sunrise);
       currentsun.appendChild(sunset);
 
