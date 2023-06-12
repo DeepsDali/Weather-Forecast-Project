@@ -42,27 +42,8 @@ form.addEventListener("submit", async (event) => {
     // Append the new map to the mapDiv
     image = newImage; // Update the reference to the new map
     mapDiv.appendChild(newImage);
-    const today = new Date();
-
-    //if just start needed
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-    // const date = `${year}-${month}-${day}`;
-
-    //if start and end date needed
-    // const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
-    // function formatDate(thedate){
-    //   const year = thedate.getFullYear();
-    //   const month = String(thedate.getMonth() + 1).padStart(2, "0");
-    //   const day = String(thedate.getDate()).padStart(2, "0");
-    //   return `${year}-${month}-${day}`;
-    // }
-    // const date = formatDate(today)
-    // const enddate = formatDate(nextWeek)
 
     const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
-    // const apiUrl = `https://api.open-meteo.com/v1/dwd-icon?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon&start_date=${date}&end_date=${enddate}`
 
     const response = await fetch(apiUrl);
 
