@@ -10,17 +10,15 @@
     <meta name="description" content="Weather App" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./grid.css" />
-    <title>TD Weather APP</title>
+    <title>TD Weather App</title>
   </head>
   <body>
     <div class="grid-container">
-      <div class="header">
+      <header class="header">
         <h1>TD Weather App</h1>
-      </div>
-
-
-      <!-- <main class="center"> -->
-        <div tabindex="0" id="search-section" class="inputgrid stack-m">
+      </header>
+      <main>
+        <section tabindex="0" id="search-section" class="inputgrid stack-m">
           <form
             action=""
             method="POST"
@@ -39,33 +37,31 @@
             />
             <button type="submit" id="submit-btn" class="">Search</button>
           </form>
-        </div>
+        </section>
 
-        <!-- <div class="postcodeoutput"></div>
-        <div class="city"></div> -->
-
-        <div class="mapgrid" id="location">
-          <!-- <h4>Location Info</h4> -->
+        <section class="mapgrid" id="location">
           <h2 id="post-code"></h2>
           <h2 id="county"></h2>
           <div id="map"></div>
-        </div>
-        <div class="tempnowgrid" id="weather-today">
-          <h4 id="current">Current Weather</h4>
-          <div id="current"></div>
-        </div>
+        </section>
 
-        <div class="sungrid" id="weather-today">
-          <h4 id="currentsun">Todays Sunset/Sunrise</h4>
+        <section class="tempnowgrid" id="weather-today">
+          <h4 id="curr">Current Weather</h4>
+          <div id="current"></div>
+        </section>
+
+        <section class="sungrid" id="weather-today">
+          <h4 id="currsun">Todays Sunset/Sunrise</h4>
           <div id="currentsun"></div>
-        </div>
-        
-        <div class="foregrid" id="weather-forecast">
-          <h4 id="current">7 day forecast</h4>
-        </div>
-      <div tabindex="0" class="footer column stack-l">
+        </section>
+
+        <section class="foregrid" id="weather-forecast">
+          <h4>7-day Forecast</h4>
+        </section>
+      </main>
+      <footer tabindex="0" class="footer column stack-l">
         <p>Copyright @ 2023 Tess Phillips & Deepashri Dali</p>
-      </div>
+      </footer>
     </div>
     <script src="./main.js" type="module"></script>
   </body>
