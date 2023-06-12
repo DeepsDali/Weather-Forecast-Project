@@ -50,7 +50,6 @@ form.addEventListener("submit", async (event) => {
     // const enddate = `${year}-${month}-${day+7}`;
     console.log(date);
 
-    // const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,sunset&current_weather=true&start_date=${date}&end_date=${date}&timezone=Europe%2FLondon`;
     const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
 
     const response = await fetch(apiUrl);
@@ -94,8 +93,6 @@ form.addEventListener("submit", async (event) => {
         document.querySelector(`#day${i}`).appendChild(day);
 
       }
-
-  
 
       current.appendChild(temperatureHeading);
       current.appendChild(windSpeedHeading);

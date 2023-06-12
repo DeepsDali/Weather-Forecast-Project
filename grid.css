@@ -74,14 +74,12 @@ main > section {
 }
 
 /* forecast */
-
 .gridmain {
   display: grid;
   width: 98vw;
   grid-template-areas:
     "forehead forehead forehead forehead forehead forehead forehead"
     "day day day day day day day ";
-  /* gap: 5px; */
 }
 
 .forehead{
