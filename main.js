@@ -61,7 +61,7 @@ form.addEventListener("submit", async (event) => {
     // const date = formatDate(today)
     // const enddate = formatDate(nextWeek)
 
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
     // const apiUrl = `https://api.open-meteo.com/v1/dwd-icon?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon&start_date=${date}&end_date=${enddate}`
 
     const response = await fetch(apiUrl);
@@ -71,6 +71,7 @@ form.addEventListener("submit", async (event) => {
       console.log(resData);
 
       let current_temp = resData.current_weather.temperature;
+      // let current_temp_code = resData.current_weather.weathercode;
       let current_windSpeed = resData.current_weather.windspeed;
       let s_rise = resData.daily.sunrise;
       let s_set = resData.daily.sunset;
