@@ -81,17 +81,18 @@ form.addEventListener("submit", async (event) => {
       for (let i=1;i<8;i++){
         const day = document.createElement("div");
         const forecast_max = document.createElement("h4");
-        forecast_max.textContent = `Max temp: ${fore_max[i-1]}`;
+        forecast_max.textContent = `${fore_max[i-1]}`;
         day.appendChild(forecast_max);
 
         const forecast_min = document.createElement("h4");
-        forecast_min.textContent = `Min temp: ${fore_min[i-1]}`;
+        forecast_min.textContent = `${fore_min[i-1]}`;
         day.appendChild(forecast_min);
 
         const forecast_code = document.createElement("h4");
-        forecast_min.textContent = `code: ${fore_code[i-1]}`;
+        forecast_code.textContent = `code: ${fore_code[i-1]}`;
         day.appendChild(forecast_code);
 
+        document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
 
       }
