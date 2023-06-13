@@ -58,6 +58,7 @@ main {
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.582);
   border-radius: 20px;
   font-size: x-small;
+  margin-bottom:20px;
 }
 
 main > div,
@@ -65,13 +66,9 @@ main > section {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
   text-align: center;
-  padding: 5px 0;
+  /* padding: 5px 5px; */
   font-size: 15px;
-}
-
-
-.sungrid {
-  grid-area: sungrid;
+  box-shadow: 0 0 10px var(--col2);
 }
 
 .mapgrid {

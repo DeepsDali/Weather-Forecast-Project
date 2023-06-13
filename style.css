@@ -5,16 +5,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-:root {
-  --color-one: ;
-  --color-two: ;
-  --color-three: #e0f3f3;
+h4{
+  font-weight: 100;
 }
 
 /* background gradient */
 :root{
-  --col3:rgb(255, 212, 133);
-  --col2:rgb(255, 255, 132);
+  --col1:#1f271b;
+  --col2:#F4D35E;
+  --col3:#EE964B;
+  --col4:#19647e;
+  --col5:#28afb0;
 }
 
 body {
@@ -58,4 +59,25 @@ body {
 
 .tempnowgrid {
   grid-area: tempnowgrid;
+  /* background-color: var(--col5); */
+  #county{
+    padding-left:20px;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  /* need icons for formatting */
+  #current{
+    padding-right:20px;
+    text-align: right;
+  }
+}
+
+.sungrid {
+  grid-area: sungrid;
+  & #currentsun{
+    /* i'm not sure why this isn't working, I want them to be inline */
+    /* so that sunrise can have a sunrise symbol on top */
+    /* and sunset can have the moon symbol on top */
+    display:inline; 
+  }
 }
