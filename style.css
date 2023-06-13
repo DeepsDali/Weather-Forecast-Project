@@ -5,17 +5,24 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1{
+  color: white;
+  font-size: xx-large;
+}
+
 h4{
   font-weight: 100;
 }
 
 /* background gradient */
 :root{
-  --col1:#1f271b;
-  --col2:#F4D35E;
-  --col3:#EE964B;
-  --col4:#19647e;
-  --col5:#28afb0;
+  --col3:#C0A9B0;
+  --col2:#6BBAEC;
+
+  /* only using 2 and 3 so far */
+  --col1:#6987C9;
+  --col4:#BCC4DB;
+  --col5:#7880B5;
 }
 
 body {
@@ -29,55 +36,3 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--col3), endColorstr=var(--col2),GradientType=0 );
 }
 
-/* individual icons css */
-.inputgrid {
-  grid-area: inputgrid;
-  height: fit-content;
-  margin:auto;
-  width:94vw;
-  max-width: 400px;
-
-  & button{
-    max-width: 30%;
-    border-radius: 30px;
-    padding:15px 20px;
-    border:none;
-    background:rgba(255,255,255,0.1);
-    /* height: inherit; */
-  }
-  & input{
-    width:70%;
-    /* color:#D46A6A; */
-    /* display:block; */
-    border:none;
-    padding:15px 20px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.1);
-    margin-left:0;
-  }
-}
-
-.tempnowgrid {
-  grid-area: tempnowgrid;
-  /* background-color: var(--col5); */
-  #county{
-    padding-left:20px;
-    padding-bottom: 5px;
-    text-align: left;
-  }
-  /* need icons for formatting */
-  #current{
-    padding-right:20px;
-    text-align: right;
-  }
-}
-
-.sungrid {
-  grid-area: sungrid;
-  & #currentsun{
-    /* i'm not sure why this isn't working, I want them to be inline */
-    /* so that sunrise can have a sunrise symbol on top */
-    /* and sunset can have the moon symbol on top */
-    display:inline; 
-  }
-}

@@ -16,6 +16,8 @@
 .grid-container > header,
 .grid-container > main,
 .grid-container > footer {
+  margin:auto;
+  max-width: 600px;
   text-align: center;
   padding: 5px 0;
   font-size: 10px;
@@ -43,7 +45,7 @@ main {
     "inputgrid inputgrid"
     "tempnowgrid sungrid"
     "foregrid foregrid"
-    "mapgrid mapgrid";
+    "mapgrid else";
   gap: 30px;
 }
 
@@ -71,6 +73,9 @@ main > section {
   box-shadow: 0 0 10px var(--col2);
 }
 
+
+/* need to get the image to be contained withtin the div */
+/* i was trying to get it as the background of the div but i struggled */
 .mapgrid {
   grid-area: mapgrid;
 }
@@ -79,17 +84,104 @@ main > section {
   grid-area: foregrid;
 }
 
+.else {
+  grid-area: else;
+}
+
 /* forecast */
 .gridmain {
   display: grid;
   grid-template-areas:
     "forehead forehead forehead forehead forehead forehead forehead"
-    "day day day day day day day ";
+    "foreday foreday foreday foreday foreday foreday foreday ";
 }
 
 .forehead{
-  grid-area: forehead
+  grid-area: forehead;
 }
+
+/* individual icons css */
+.inputgrid {
+  grid-area: inputgrid;
+  height: fit-content;
+  margin:auto;
+  width:94vw;
+  max-width: 400px;
+
+  & button{
+    max-width: 30%;
+    border-radius: 30px;
+    padding:15px 20px;
+    border:none;
+    background:rgba(255,255,255,0.1);
+    /* height: inherit; */
+  }
+  & input{
+    width:70%;
+    /* color:#D46A6A; */
+    /* display:block; */
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    margin-left:0;
+  }
+}
+
+.tempnowgrid {
+  grid-area: tempnowgrid;
+  /* background-color: var(--col5); */
+  #county-post{
+    display: flex;
+    /* align-items:; */
+    padding-left:20px;
+    padding-bottom: 5px;
+    text-align: left;
+    /* margin-right: 0; */
+    /* display: table-row; */
+
+  }
+  /* need icons for formatting */
+  #current{
+    padding-right:20px;
+    text-align: right;
+  }
+}
+
+.sungrid {
+  grid-area: sungrid;
+  & #currentsun{
+    display:flex; 
+  }
+  & p{
+    margin:auto;
+    padding:10px 0;
+    padding-bottom: 0;
+
+  }
+
+}
+
+.foreday{
+  grid-area:"foreday foreday foreday foreday foreday foreday foreday ";
+  padding-top: 0;
+  margin-top: -10px;
+  .dayofweek{
+    font-size: small;
+  }
+  .maxtemp{
+    font-weight:bolder;
+  }
+  .mintemp{
+    font-size: lighter;
+  }
+  .forecast_icon{
+    padding:5px;
+    color:white;
+  }
+  
+}
+
 
 /* @media only screen and (min-width: 768px) {
   .grid-container {
