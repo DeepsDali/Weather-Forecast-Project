@@ -11,7 +11,7 @@ const currentsun = document.querySelector("#currentsun");
 const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 let image = null;
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", async function everything(event) {
   event.preventDefault();
 
   current.innerHTML = "";
