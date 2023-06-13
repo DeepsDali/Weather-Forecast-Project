@@ -76,14 +76,19 @@ form.addEventListener("submit", async (event) => {
       let fore_code = resData.daily.weathercode;
       let date_arr = resData.daily.time;
 
-      const temperatureHeading = document.createElement("h4");
-      temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
+      const temperatureHeading = document.createElement("h3");
+      temperatureHeading.textContent = `${current_temp}°`;
 
-      const windSpeedHeading = document.createElement("h4");
-      windSpeedHeading.textContent = `Wind Speed: ${current_windSpeed} km/h`;
+      const windSpeedHeading = document.createElement("h3");
+      windSpeedHeading.textContent = `${current_windSpeed} km/h`;
 
-      const current_icon = document.createElement("h4");
-      current_icon.textContent = `code: ${current_temp_code} `;
+      const current_icon = document.createElement("img");
+      current_icon.classList.add("icon");
+      current_icon.src = `./icons/${current_temp_code}.svg `;
+
+      const wind_icon = document.createElement("img");
+      wind_icon.classList.add("icon");
+      wind_icon.src = `./icons/wind.svg `;
 
       const sunrise = document.createElement("h3");
       const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
@@ -98,7 +103,6 @@ form.addEventListener("submit", async (event) => {
       const sunset_icon = document.createElement("img");
       sunset_icon.classList.add("icon");
       sunset_icon.src = `./icons/sunset.svg`;
-
       // forecast
       for (let i = 1; i < 8; i++) {
         let weekday = date_arr[i - 1];
@@ -133,9 +137,11 @@ form.addEventListener("submit", async (event) => {
         document.querySelector(`#day${i}`).appendChild(day);
       }
 
-      current.appendChild(temperatureHeading);
-      current.appendChild(windSpeedHeading);
       current.appendChild(current_icon);
+      current.appendChild(temperatureHeading);
+      current.appendChild(wind_icon);
+      current.appendChild(windSpeedHeading);
+
       currentsun.appendChild(currSunrise);
       currentsun.appendChild(currSunset);
       currSunrise.appendChild(sunrise_icon);
