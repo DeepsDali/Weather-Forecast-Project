@@ -118,19 +118,19 @@ form.addEventListener("submit", async (event) => {
         forecast_day.textContent = `${weekday}`;
         day.appendChild(forecast_day);
 
-        const forecast_code = document.createElement("h4");
-        forecast_code.className = "forecast_icon";
-        forecast_code.textContent = `code: ${fore_code[i - 1]}`;
-        day.appendChild(forecast_code);
+        const forecast_icon = document.createElement("img");
+        forecast_icon.classList.add("icon");
+        forecast_icon.src = `./icons/${fore_code[i - 1]}.svg`;
+        day.appendChild(forecast_icon);
 
         const forecast_max = document.createElement("h4");
         forecast_max.className = "maxtemp";
-        forecast_max.textContent = `${fore_max[i - 1]}°C`;
+        forecast_max.textContent = `${fore_max[i - 1]}°`;
         day.appendChild(forecast_max);
 
         const forecast_min = document.createElement("h4");
         forecast_min.className = "mintemp";
-        forecast_min.textContent = `${fore_min[i - 1]}°C`;
+        forecast_min.textContent = `${fore_min[i - 1]}°`;
         day.appendChild(forecast_min);
 
         document.querySelector(`#day${i}`).innerHTML = "";
