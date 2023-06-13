@@ -11,7 +11,18 @@ const currentsun = document.querySelector("#currentsun");
 const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 let image = null;
-form.addEventListener("submit", async function everything(event) {
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Set the default postcode
+  const defaultPostcode = "n2 9nx";
+
+  // Dispatch a submit event on the form element with the default postcode
+  const submitEvent = new Event("submit");
+  form.querySelector("[name='postcode']").value = defaultPostcode;
+  form.dispatchEvent(submitEvent);
+});
+  
+form.addEventListener("submit", async (event) =>{
   event.preventDefault();
 
   current.innerHTML = "";
