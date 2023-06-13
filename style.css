@@ -2,13 +2,82 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-:root {
-  --color-one: ;
-  --color-two: ;
-  --color-three: #e0f3f3;
+h4{
+  font-weight: 100;
 }
+
+/* background gradient */
+:root{
+  --col1:#1f271b;
+  --col2:#F4D35E;
+  --col3:#EE964B;
+  --col4:#19647e;
+  --col5:#28afb0;
+}
+
 body {
-  background-color: var(--color-three);
+  background: var(--col3);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,var(--col3)), color-stop(100%,var(--col2)));
+  background: -webkit-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
+  background:    -moz-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
+  background:     -ms-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
+  background:      -o-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
+  background:         linear-gradient(to bottom, var(--col3) 0%,var(--col2) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--col3), endColorstr=var(--col2),GradientType=0 );
+}
+
+/* individual icons css */
+.inputgrid {
+  grid-area: inputgrid;
+  height: fit-content;
+  margin:auto;
+  width:94vw;
+  max-width: 400px;
+
+  & button{
+    max-width: 30%;
+    border-radius: 30px;
+    padding:15px 20px;
+    border:none;
+    background:rgba(255,255,255,0.1);
+    /* height: inherit; */
+  }
+  & input{
+    width:70%;
+    /* color:#D46A6A; */
+    /* display:block; */
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    margin-left:0;
+  }
+}
+
+.tempnowgrid {
+  grid-area: tempnowgrid;
+  /* background-color: var(--col5); */
+  #county{
+    padding-left:20px;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  /* need icons for formatting */
+  #current{
+    padding-right:20px;
+    text-align: right;
+  }
+}
+
+.sungrid {
+  grid-area: sungrid;
+  & #currentsun{
+    /* i'm not sure why this isn't working, I want them to be inline */
+    /* so that sunrise can have a sunrise symbol on top */
+    /* and sunset can have the moon symbol on top */
+    display:inline; 
+  }
 }

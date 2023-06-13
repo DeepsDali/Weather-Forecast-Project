@@ -8,8 +8,10 @@ const county = document.querySelector("#county");
 const current = document.querySelector("#current");
 const currentsun = document.querySelector("#currentsun");
 
+const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
 let image = null;
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", async function everything(event) {
   event.preventDefault();
 
   current.innerHTML = "";
@@ -59,6 +61,8 @@ form.addEventListener("submit", async (event) => {
       let fore_max = resData.daily.temperature_2m_max
       let fore_min = resData.daily.temperature_2m_min
       let fore_code = resData.daily.weathercode
+      let date_arr = resData.daily.time
+      console.log(date_arr)
 
       const temperatureHeading = document.createElement("h4");
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
@@ -69,29 +73,37 @@ form.addEventListener("submit", async (event) => {
       const current_icon = document.createElement("h4");
       current_icon.textContent = `code: ${current_temp_code} `;
 
-      const sunrise = document.createElement("h4");
+      const sunrise = document.createElement("p");
       const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
-      sunrise.textContent = `Sunrise: ${sunriseTime}`;
+      sunrise.textContent = `${sunriseTime}`;
 
-      const sunset = document.createElement("h4");
+      const sunset = document.createElement("p");
       const sunsetTime = s_set[0].split("T")[1].slice(0, 5);
-      sunset.textContent = `Sunset: ${sunsetTime}`;
+      sunset.textContent = `${sunsetTime}`;
 
       // forecast
       for (let i=1;i<8;i++){
+        let weekday = date_arr[i-1]
+        weekday = new Date(weekday)
+        weekday = weekday.getDay()
+        weekday = weekdays[weekday]
+        console.log(weekday)
+        // day.appendChild(weekday)
+
         const day = document.createElement("div");
         const forecast_max = document.createElement("h4");
-        forecast_max.textContent = `Max temp: ${fore_max[i-1]}`;
+        forecast_max.textContent = `${fore_max[i-1]}°C`;
         day.appendChild(forecast_max);
 
         const forecast_min = document.createElement("h4");
-        forecast_min.textContent = `Min temp: ${fore_min[i-1]}`;
+        forecast_min.textContent = `${fore_min[i-1]}°C`;
         day.appendChild(forecast_min);
 
         const forecast_code = document.createElement("h4");
-        forecast_min.textContent = `code: ${fore_code[i-1]}`;
+        forecast_code.textContent = `code: ${fore_code[i-1]}`;
         day.appendChild(forecast_code);
 
+        document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
 
       }
