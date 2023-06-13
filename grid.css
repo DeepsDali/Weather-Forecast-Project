@@ -55,15 +55,35 @@ main > section {
   padding: 5px 0;
   font-size: 15px;
 }
+
 .inputgrid {
   grid-area: inputgrid;
-  /* padding:0;
-  padding: 1em; */
+  height: fit-content;
+  /* height:7vh; */
+  /* padding:15px 20px; */
+  /* padding-bottom:0; */
+  margin:auto;
+  width:94vw;
+  max-width: 400px;
+
   & button{
+    max-width: 30%;
     border-radius: 30px;
+    padding:15px 20px;
+    border:none;
+    /* height: inherit; */
+  }
+  & input{
+    width:70%;
+    /* color:#D46A6A; */
+    /* display:block; */
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    margin-left:0;
   }
 }
-
 
 .tempnowgrid {
   grid-area: tempnowgrid;
