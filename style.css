@@ -5,34 +5,42 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1{
+h1 {
   color: white;
   font-size: xx-large;
 }
 
-h4{
+h4 {
   font-weight: 100;
 }
-
+.icon {
+  width: 3em;
+  height: 3em;
+}
 /* background gradient */
-:root{
-  --col3:#C0A9B0;
-  --col2:#6BBAEC;
+:root {
+  --col3: #c0a9b0;
+  --col2: #6bbaec;
 
   /* only using 2 and 3 so far */
-  --col1:#6987C9;
-  --col4:#BCC4DB;
-  --col5:#7880B5;
+  --col1: #6987c9;
+  --col4: #bcc4db;
+  --col5: #7880b5;
 }
 
 body {
   background: var(--col3);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,var(--col3)), color-stop(100%,var(--col2)));
-  background: -webkit-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
-  background:    -moz-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
-  background:     -ms-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
-  background:      -o-linear-gradient(top,  var(--col3) 0%, var(--col2) 100%);
-  background:         linear-gradient(to bottom, var(--col3) 0%,var(--col2) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, var(--col3)),
+    color-stop(100%, var(--col2))
+  );
+  background: -webkit-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
+  background: -moz-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
+  background: -ms-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
+  background: -o-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
+  background: linear-gradient(to bottom, var(--col3) 0%, var(--col2) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--col3), endColorstr=var(--col2),GradientType=0 );
 }
-

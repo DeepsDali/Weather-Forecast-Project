@@ -7,12 +7,14 @@ const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
 const current = document.querySelector("#current");
 const currentsun = document.querySelector("#currentsun");
+const currSunrise = document.querySelector("#current-sunrise");
+const currSunset = document.querySelector("#current-sunset");
 
-const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 let image = null;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Set the default postcode
   const defaultPostcode = "n2 9nx";
 
@@ -21,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
   form.querySelector("[name='postcode']").value = defaultPostcode;
   form.dispatchEvent(submitEvent);
 });
-  
-form.addEventListener("submit", async (event) =>{
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   current.innerHTML = "";
@@ -56,7 +58,7 @@ form.addEventListener("submit", async (event) =>{
     image = newImage; // Update the reference to the new map
     mapDiv.appendChild(newImage);
 
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FLondon`;
 
     const response = await fetch(apiUrl);
 
@@ -69,10 +71,10 @@ form.addEventListener("submit", async (event) =>{
       let current_windSpeed = resData.current_weather.windspeed;
       let s_rise = resData.daily.sunrise;
       let s_set = resData.daily.sunset;
-      let fore_max = resData.daily.temperature_2m_max
-      let fore_min = resData.daily.temperature_2m_min
-      let fore_code = resData.daily.weathercode
-      let date_arr = resData.daily.time
+      let fore_max = resData.daily.temperature_2m_max;
+      let fore_min = resData.daily.temperature_2m_min;
+      let fore_code = resData.daily.weathercode;
+      let date_arr = resData.daily.time;
 
       const temperatureHeading = document.createElement("h4");
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
@@ -83,56 +85,63 @@ form.addEventListener("submit", async (event) =>{
       const current_icon = document.createElement("h4");
       current_icon.textContent = `code: ${current_temp_code} `;
 
-      const sunrise = document.createElement("p");
+      const sunrise = document.createElement("h3");
       const sunriseTime = s_rise[0].split("T")[1].slice(0, 5);
       sunrise.textContent = `${sunriseTime}`;
+      const sunrise_icon = document.createElement("img");
+      sunrise_icon.classList.add("icon");
+      sunrise_icon.src = `./icons/sunrise.svg`;
 
-      const sunset = document.createElement("p");
+      const sunset = document.createElement("h3");
       const sunsetTime = s_set[0].split("T")[1].slice(0, 5);
       sunset.textContent = `${sunsetTime}`;
+      const sunset_icon = document.createElement("img");
+      sunset_icon.classList.add("icon");
+      sunset_icon.src = `./icons/sunset.svg`;
 
       // forecast
-      for (let i=1;i<8;i++){
-        let weekday = date_arr[i-1]
-        weekday = new Date(weekday)
-        weekday = weekday.getDay()
-        weekday = weekdays[weekday]
-        console.log(weekday)
+      for (let i = 1; i < 8; i++) {
+        let weekday = date_arr[i - 1];
+        weekday = new Date(weekday);
+        weekday = weekday.getDay();
+        weekday = weekdays[weekday];
+        console.log(weekday);
 
         const day = document.createElement("div");
 
         const forecast_day = document.createElement("h4");
         forecast_day.className = "dayofweek";
         forecast_day.textContent = `${weekday}`;
-        day.appendChild(forecast_day)
+        day.appendChild(forecast_day);
 
         const forecast_code = document.createElement("h4");
         forecast_code.className = "forecast_icon";
-        forecast_code.textContent = `code: ${fore_code[i-1]}`;
+        forecast_code.textContent = `code: ${fore_code[i - 1]}`;
         day.appendChild(forecast_code);
 
         const forecast_max = document.createElement("h4");
         forecast_max.className = "maxtemp";
-        forecast_max.textContent = `${fore_max[i-1]}°C`;
+        forecast_max.textContent = `${fore_max[i - 1]}°C`;
         day.appendChild(forecast_max);
 
         const forecast_min = document.createElement("h4");
         forecast_min.className = "mintemp";
-        forecast_min.textContent = `${fore_min[i-1]}°C`;
+        forecast_min.textContent = `${fore_min[i - 1]}°C`;
         day.appendChild(forecast_min);
-
 
         document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
-
       }
 
       current.appendChild(temperatureHeading);
       current.appendChild(windSpeedHeading);
       current.appendChild(current_icon);
-      currentsun.appendChild(sunrise);
-      currentsun.appendChild(sunset);
-
+      currentsun.appendChild(currSunrise);
+      currentsun.appendChild(currSunset);
+      currSunrise.appendChild(sunrise_icon);
+      currSunrise.appendChild(sunrise);
+      currSunset.appendChild(sunset_icon);
+      currSunset.appendChild(sunset);
     } else {
       throw new Error(response.status);
     }

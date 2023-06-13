@@ -39,20 +39,26 @@
           </form>
         </section>
 
-        <section class="mapgrid" id="location">
-        </section>
+        <section class="mapgrid" id="location"></section>
 
         <section class="tempnowgrid" id="weather-today">
           <h4 id="curr" class="sectionhead">Current Weather</h4>
-          <div id="county-post"><p id="county"></p><p style="padding-right: 4px;">,</p><p id="post-code"></p></div>
+          <div id="county-post">
+            <p id="county"></p>
+            <p style="padding-right: 4px">,</p>
+            <p id="post-code"></p>
+          </div>
           <div id="current"></div>
         </section>
 
         <section class="sungrid" id="weather-today">
-          <h4 id="currsun" class="sectionhead">Todays Sunset/Sunrise</h4>
+          <!-- <h4 id="currsun" class="sectionhead">Todays Sunset/Sunrise</h4> -->
           <!-- sunrise icon --- moon icon -->
-          <br><br><br>
-          <div id="currentsun"></div>
+          <!-- <br><br><br> -->
+          <div id="currentsun">
+            <div id="current-sunrise"></div>
+            <div id="current-sunset"></div>
+          </div>
         </section>
 
         <section class="foregrid gridmain" id="weather-forecast">
@@ -64,7 +70,6 @@
           <div class="foreday" id="day5"></div>
           <div class="foreday" id="day6"></div>
           <div class="foreday" id="day7"></div>
-
         </section>
 
         <section class="else">
