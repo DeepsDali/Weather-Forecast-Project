@@ -8,7 +8,7 @@ const county = document.querySelector("#county");
 const current = document.querySelector("#current");
 const currentsun = document.querySelector("#currentsun");
 
-const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 let image = null;
 
@@ -44,7 +44,7 @@ form.addEventListener("submit", async (event) =>{
     let lat = coordinates.latitude;
     let lon = coordinates.longitude;
     const imageURL = await getMap(lat, lon);
-    const mapDiv = document.querySelector("#map");
+    const mapDiv = document.querySelector("#location");
     const newImage = document.createElement("img");
     newImage.src = imageURL;
     newImage.alt = "map of searched postcode";
@@ -62,7 +62,7 @@ form.addEventListener("submit", async (event) =>{
 
     if (response.ok) {
       const resData = await response.json();
-      console.log(resData);
+      // console.log(resData);
 
       let current_temp = resData.current_weather.temperature;
       let current_temp_code = resData.current_weather.weathercode;
@@ -73,7 +73,6 @@ form.addEventListener("submit", async (event) =>{
       let fore_min = resData.daily.temperature_2m_min
       let fore_code = resData.daily.weathercode
       let date_arr = resData.daily.time
-      console.log(date_arr)
 
       const temperatureHeading = document.createElement("h4");
       temperatureHeading.textContent = `Temperature: ${current_temp} °C`;
@@ -99,20 +98,29 @@ form.addEventListener("submit", async (event) =>{
         weekday = weekday.getDay()
         weekday = weekdays[weekday]
         console.log(weekday)
-        // day.appendChild(weekday)
 
         const day = document.createElement("div");
+
+        const forecast_day = document.createElement("h4");
+        forecast_day.className = "dayofweek";
+        forecast_day.textContent = `${weekday}`;
+        day.appendChild(forecast_day)
+
+        const forecast_code = document.createElement("h4");
+        forecast_code.className = "forecast_icon";
+        forecast_code.textContent = `code: ${fore_code[i-1]}`;
+        day.appendChild(forecast_code);
+
         const forecast_max = document.createElement("h4");
+        forecast_max.className = "maxtemp";
         forecast_max.textContent = `${fore_max[i-1]}°C`;
         day.appendChild(forecast_max);
 
         const forecast_min = document.createElement("h4");
+        forecast_min.className = "mintemp";
         forecast_min.textContent = `${fore_min[i-1]}°C`;
         day.appendChild(forecast_min);
 
-        const forecast_code = document.createElement("h4");
-        forecast_code.textContent = `code: ${fore_code[i-1]}`;
-        day.appendChild(forecast_code);
 
         document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
