@@ -126,11 +126,12 @@ main > section {
 }
 #county-post {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-weight: bold;
   font-size: 1.5em;
   color: #021057;
+}
+#post-code {
+  padding: 0 15px;
 }
 /* tempnowgrid */
 
@@ -188,5 +189,54 @@ main > section {
   }
   .mintemp {
     font-size: lighter;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-areas:
+      "inputgrid inputgrid"
+      "placegrid placegrid"
+      "tempnowgrid sungrid"
+      "tempnowgrid sungrid"
+      "foregrid mapgrid"
+      "foregridgrid mapgrid"
+      "else else";
+  }
+  .grid-container {
+    margin: auto;
+  }
+  .inputgrid {
+    width: 60vw;
+    & input {
+      width: 40vw;
+    }
+  }
+  .placegrid {
+    width: 60vw;
+    margin: auto;
+  }
+  .tempnowgrid {
+    width: 30vw;
+    margin: auto;
+  }
+  #current {
+    width: 30vw;
+    margin: auto;
+  }
+  .sungrid {
+    width: 30vw;
+    margin: auto;
+  }
+  .gridmain {
+    width: 30vw;
+    height: 30vw;
+    margin: auto;
+  }
+  .map-image {
+    width: 30vw;
+    height: 30vw;
+    margin: auto;
   }
 }
