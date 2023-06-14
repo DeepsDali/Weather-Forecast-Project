@@ -1,85 +1,79 @@
+/* whole site grid */
+
 .grid-container {
   display: grid;
   grid-template-areas:
-    "header"
-    "main"
+    "header "
+    "main  "
     "footer";
   gap: 5px;
   min-height: 100vh;
+  width: 100%;
 }
 
-.grid-container > header,
-.grid-container > footer {
+.grid-container > footer,
+.grid-container > header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(240, 248, 255, 0.082);
+  color: #021057;
   max-height: 10vh;
 }
-
-.grid-container > header,
-.grid-container > main,
-.grid-container > footer {
-  margin: auto;
-  max-width: 600px;
-  text-align: center;
-  padding: 5px 0;
-  font-size: 10px;
-}
-
 .header {
   grid-area: header;
-  max-height: 10vh;
+  padding: 18px;
 }
-
 .main {
   grid-area: main;
-  height: 80vh;
+  min-height: 80vh;
+  max-width: 90vw;
 }
 .footer {
+  padding: 10px;
   grid-area: footer;
-  height: 10vh;
+  color: #021057;
+  font-weight: bold;
+  font-size: 1em;
 }
+
+/* main section grid */
 
 main {
   display: grid;
-  width: 94vw;
-  margin-left: 3vw;
   grid-template-areas:
     "inputgrid inputgrid"
+    "placegrid placegrid"
+    "tempnowgrid sungrid"
     "tempnowgrid sungrid"
     "foregrid foregrid"
-    "mapgrid else";
+    "mapgrid mapgrid"
+    "else else";
   gap: 30px;
+  max-width: 98vw;
+  min-height: 80vh;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
 }
-
-.sectionhead {
-  color: white;
-  /* padding:3px; */
-  font-weight: 100;
-  margin: auto;
-  width: fit-content;
-  margin-top: -20px;
-  background-color: rgba(128, 128, 128, 0.274);
-  box-shadow: 0 0 10px rgba(128, 128, 128, 0.582);
-  border-radius: 20px;
-  font-size: x-small;
-  margin-bottom: 20px;
-}
-
 main > div,
 main > section {
-  background-color: rgba(42, 27, 77, 0.8);
   color: aliceblue;
-  border-radius: 30px;
+  border-radius: 20px;
   text-align: center;
-  /* padding: 5px 5px; */
-  font-size: 15px;
-  box-shadow: 0 0 10px var(--col2);
+  /* box-shadow: 0 0 10px var(--col2); */
 }
-
-/* need to get the image to be contained withtin the div */
-/* i was trying to get it as the background of the div but i struggled */
 .mapgrid {
   grid-area: mapgrid;
 }
-
+.map-image {
+  border-radius: 20px;
+  border: solid 4px;
+  border-color: #021057;
+  width: 90vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .foregrid {
   grid-area: foregrid;
 }
@@ -87,76 +81,99 @@ main > section {
 .else {
   grid-area: else;
 }
-
-/* forecast */
-.gridmain {
-  display: grid;
-  grid-template-areas:
-    "forehead forehead forehead forehead forehead forehead forehead"
-    "foreday foreday foreday foreday foreday foreday foreday ";
-}
-
-.forehead {
-  grid-area: forehead;
-}
-
-/* individual icons css */
+/* inputgrid (search bar)*/
 .inputgrid {
   grid-area: inputgrid;
   height: fit-content;
-  margin: auto;
-  width: 94vw;
-  max-width: 400px;
-
+  margin: 25px auto;
+  width: 90vw;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   & button {
-    max-width: 30%;
-    border-radius: 30px;
-    padding: 15px 20px;
+    max-width: 20%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 0.8em;
     border: none;
-    background: rgba(255, 255, 255, 0.1);
-    /* height: inherit; */
+    background-color: aliceblue;
+    color: #021057;
   }
+  /* & button:hover {
+    background-color: #575d85;
+    color: rgb(244, 236, 236);
+  } */
+
   & input {
-    width: 70%;
-    /* color:#D46A6A; */
-    /* display:block; */
+    width: 70vw;
     border: none;
+    color: #021057;
+    font-weight: bold;
     padding: 15px 20px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    background-color: aliceblue;
     margin-left: 0;
   }
 }
+/* placegrid */
+.placegrid {
+  grid-area: placegrid;
+  width: 90vw;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 10px;
+}
+#county-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #021057;
+}
+/* tempnowgrid */
 
 .tempnowgrid {
   grid-area: tempnowgrid;
-  /* background-color: var(--col5); */
-  #county-post {
-    display: flex;
-    /* align-items:; */
-    padding-left: 20px;
-    padding-bottom: 5px;
-    text-align: left;
-    /* margin-right: 0; */
-    /* display: table-row; */
-  }
-  /* need icons for formatting */
-  #current {
-    padding-right: 20px;
-    text-align: right;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#current {
+  background-color: #021057;
+  color: aliceblue;
+  text-align: center;
+  width: 60vw;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .sungrid {
   grid-area: sungrid;
-  & #currentsun {
-    display: flex;
-  }
-  & p {
-    margin: auto;
-    padding: 10px 0;
-    padding-bottom: 0;
-  }
+  background-color: #e5e8f3;
+  padding: 10px;
+  color: #343958;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* forecast */
+.gridmain {
+  display: grid;
+  width: 90vw;
+  grid-template-areas: "forehead forehead forehead forehead forehead ";
+  grid-auto-flow: column;
+  background-color: #021057;
+  border-radius: 15px;
+  min-height: 25vh;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.forehead {
+  grid-area: forehead;
 }
 
 .foreday {
@@ -164,7 +181,7 @@ main > section {
   padding-top: 0;
   margin-top: -10px;
   .dayofweek {
-    font-size: small;
+    font-size: 1em;
   }
   .maxtemp {
     font-weight: bolder;
@@ -172,29 +189,4 @@ main > section {
   .mintemp {
     font-size: lighter;
   }
-  .forecast_icon {
-    padding: 5px;
-    color: white;
-  }
 }
-
-/* @media only screen and (min-width: 768px) {
-  .grid-container {
-    grid-template-areas:
-      "header header"
-      "main main"
-      "footer footer";
-  }
-  main {
-    min-height: 80vh;
-    display: grid;
-    grid-template-areas:
-      "inputgrid inputgrid inputgrid inputgrid"
-      "tempnowgrid sungrid sungrid sungrid"
-      "foregrid foregrid mapgrid mapgrid";
-    gap: 10px;
-    background-color: pink;
-    padding: 1px;
-    width: 100vw;
-  }
-} */

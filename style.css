@@ -6,8 +6,7 @@
 }
 
 h1 {
-  color: white;
-  font-size: xx-large;
+  font-size: 2em;
 }
 
 h4 {
@@ -19,7 +18,8 @@ h4 {
 }
 /* background gradient */
 :root {
-  --col3: #c0a9b0;
+  /* --col3: #c0a9b0; */
+  --col3: #b1adf2;
   --col2: #6bbaec;
 
   /* only using 2 and 3 so far */
