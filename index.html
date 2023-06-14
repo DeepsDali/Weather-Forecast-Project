@@ -27,7 +27,7 @@
             aria-label="search bar"
             tabindex="0"
           >
-            <!-- <label for="postcode">Post code</label> -->
+            <label for="postcode"></label>
             <input
               id="postcode"
               name="postcode"
@@ -39,24 +39,25 @@
           </form>
         </section>
 
-        <section class="mapgrid" id="location">
+        <section class="placegrid" id="location-name">
+          <div id="county-post">
+            <p id="county"></p>
+            <p id="post-code"></p>
+          </div>
         </section>
 
         <section class="tempnowgrid" id="weather-today">
-          <h4 id="curr" class="sectionhead">Current Weather</h4>
-          <div id="county-post"><p id="county"></p><p style="padding-right: 4px;">,</p><p id="post-code"></p></div>
           <div id="current"></div>
         </section>
 
-        <section class="sungrid" id="weather-today">
-          <h4 id="currsun" class="sectionhead">Todays Sunset/Sunrise</h4>
-          <!-- sunrise icon --- moon icon -->
-          <br><br><br>
-          <div id="currentsun"></div>
+        <section class="sungrid" id="sun-today">
+          <div id="currentsun">
+            <div id="current-sunrise"></div>
+            <div id="current-sunset"></div>
+          </div>
         </section>
 
         <section class="foregrid gridmain" id="weather-forecast">
-          <h4 class="sectionhead forehead">7-day Forecast</h4>
           <div class="foreday" id="day1"></div>
           <div class="foreday" id="day2"></div>
           <div class="foreday" id="day3"></div>
@@ -64,15 +65,14 @@
           <div class="foreday" id="day5"></div>
           <div class="foreday" id="day6"></div>
           <div class="foreday" id="day7"></div>
-
         </section>
-
-        <section class="else">
-          <p>space for something else</p>
+        <section class="mapgrid" id="location"></section>
+        <!-- <section class="else"> -->
+          <!-- <p>space for something else</p> -->
         </section>
       </main>
       <footer tabindex="0" class="footer column stack-l">
-        <p>Copyright @ 2023 Tess Phillips & Deepashri Dali</p>
+        <p>Copyright @ 2023 <br><br>Tess Phillips & Deepashri Dali</p>
       </footer>
     </div>
     <script src="./main.js" type="module"></script>
