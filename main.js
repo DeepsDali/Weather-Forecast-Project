@@ -3,6 +3,7 @@ import { getLocation } from "./utils/getLocation.js";
 import { getMap } from "./utils/getMap.js";
 
 const form = document.querySelector("form");
+const place = document.querySelector("#county-post");
 const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
 const current = document.querySelector("#current");
@@ -16,7 +17,7 @@ let image = null;
 
 document.addEventListener("DOMContentLoaded", function () {
   // Set the default postcode
-  const defaultPostcode = "n2 9nx";
+  const defaultPostcode = "N2 9NX";
 
   // Dispatch a submit event on the form element with the default postcode
   const submitEvent = new Event("submit");
@@ -27,27 +28,23 @@ document.addEventListener("DOMContentLoaded", function () {
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  current.innerHTML = "";
-  currentsun.innerHTML = "";
-  output.innerHTML = "";
-  county.innerHTML = "";
-
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode");
 
-  output.innerHTML = searchedPostcode;
+  output.textContent = searchedPostcode;
   form.reset();
 
   try {
     const location = await getLocation(searchedPostcode);
     let loc = location.admin_district;
-    county.innerHTML = loc;
+    county.textContent = loc;
     const coordinates = await getLongLat(searchedPostcode);
     let lat = coordinates.latitude;
     let lon = coordinates.longitude;
     const imageURL = await getMap(lat, lon);
     const mapDiv = document.querySelector("#location");
     const newImage = document.createElement("img");
+    newImage.classList.add("map-image");
     newImage.src = imageURL;
     newImage.alt = "map of searched postcode";
     if (image) {
@@ -104,7 +101,7 @@ form.addEventListener("submit", async (event) => {
       sunset_icon.classList.add("icon");
       sunset_icon.src = `./icons/sunset.svg`;
       // forecast
-      for (let i = 1; i < 8; i++) {
+      for (let i = 1; i < 6; i++) {
         let weekday = date_arr[i - 1];
         weekday = new Date(weekday);
         weekday = weekday.getDay();
