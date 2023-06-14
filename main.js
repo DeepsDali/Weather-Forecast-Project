@@ -72,6 +72,10 @@ form.addEventListener("submit", async (event) => {
       let fore_min = resData.daily.temperature_2m_min;
       let fore_code = resData.daily.weathercode;
       let date_arr = resData.daily.time;
+      current.innerHTML = "";
+      currentsun.innerHTML = "";
+      currSunrise.innerHTML = "";
+      currSunset.innerHTML = "";
 
       const temperatureHeading = document.createElement("h3");
       temperatureHeading.textContent = `${current_temp}°`;
