@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(240, 248, 255, 0.082);
-  color: #021057;
+  color: var(--col1);
   max-height: 10vh;
 }
 .header {
@@ -33,7 +33,7 @@
 .footer {
   padding: 10px;
   grid-area: footer;
-  color: #021057;
+  color: var(--col1);
   font-weight: bold;
   font-size: 1em;
 }
@@ -59,7 +59,7 @@ main {
 }
 main > div,
 main > section {
-  color: aliceblue;
+  color: var(--col4);
   border-radius: 20px;
   text-align: center;
   /* box-shadow: 0 0 10px var(--col2); */
@@ -70,9 +70,9 @@ main > section {
 .map-image {
   border-radius: 20px;
   border: solid 4px;
-  border-color: #021057;
+  border-color: var(--col1);
   width: 90vw;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--col5) 0px 3px 8px;
 }
 .foregrid {
   grid-area: foregrid;
@@ -87,8 +87,8 @@ main > section {
   height: fit-content;
   margin: 25px auto;
   width: 90vw;
-  background-color: aliceblue;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: var(--col4);
+  box-shadow: var(--col5) 0px 3px 8px;
   & button {
     max-width: 20%;
     cursor: pointer;
@@ -97,8 +97,8 @@ main > section {
     font-weight: bold;
     font-size: 0.8em;
     border: none;
-    background-color: aliceblue;
-    color: #021057;
+    background-color: var(--col4);
+    color: var(--col1);
   }
   /* & button:hover {
     background-color: #575d85;
@@ -108,11 +108,11 @@ main > section {
   & input {
     width: 70vw;
     border: none;
-    color: #021057;
+    color: var(--col1);
     font-weight: bold;
     padding: 15px 20px;
     border-radius: 15px;
-    background-color: aliceblue;
+    background-color: var(--col4);
     margin-left: 0;
   }
 }
@@ -128,7 +128,7 @@ main > section {
   display: flex;
   font-weight: bold;
   font-size: 1.5em;
-  color: #021057;
+  color: var(--col1);
 }
 #post-code {
   padding: 0 15px;
@@ -142,21 +142,21 @@ main > section {
   align-items: center;
 }
 #current {
-  background-color: #021057;
-  color: aliceblue;
+  background-color: var(--col1);
+  color: var(--col4);
   text-align: center;
   width: 60vw;
   padding: 10px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--col5) 0px 3px 8px;
 }
 
 .sungrid {
   grid-area: sungrid;
-  background-color: #e5e8f3;
+  background-color: var(--col4);
   padding: 10px;
   color: #343958;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--col5) 0px 3px 8px;
 }
 
 /* forecast */
@@ -165,12 +165,12 @@ main > section {
   width: 90vw;
   grid-template-areas: "forehead forehead forehead forehead forehead ";
   grid-auto-flow: column;
-  background-color: #021057;
+  background-color: var(--col1);
   border-radius: 15px;
   min-height: 25vh;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--col5) 0px 3px 8px;
 }
 
 .forehead {
@@ -183,6 +183,10 @@ main > section {
   margin-top: -10px;
   .dayofweek {
     font-size: 1em;
+    font-weight: bold;
+  }
+  .dateofweek {
+    font-size: 0.8em;
   }
   .maxtemp {
     font-weight: bolder;
