@@ -68,6 +68,8 @@ main > section {
   grid-area: mapgrid;
 }
 .map-image {
+  /* max-width: 373px;
+  max-height: 373px; */
   border-radius: 20px;
   border: solid 4px;
   border-color: var(--col1);
@@ -133,13 +135,13 @@ main > section {
 #post-code {
   padding: 0 15px;
 }
-/* tempnowgrid */
 
+/* tempnowgrid */
 .tempnowgrid {
   grid-area: tempnowgrid;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 #current {
   background-color: var(--col1);
@@ -152,15 +154,19 @@ main > section {
 }
 
 .sungrid {
+  max-width: 24vw;
   grid-area: sungrid;
   background-color: var(--col4);
   padding: 10px;
-  color: #343958;
+  color: var(--col1);
   box-shadow: var(--col5) 0px 3px 8px;
 }
 
 /* forecast */
 .gridmain {
+  /* max-width: 373px;
+  max-height: 373px;
+  margin:auto; */
   display: grid;
   width: 90vw;
   grid-template-areas: "forehead forehead forehead forehead forehead ";
@@ -193,6 +199,25 @@ main > section {
   }
   .mintemp {
     font-size: lighter;
+  }
+}
+
+.gridmain{
+  font-size: larger;
+}
+@media only screen and (max-width: 1300px) {
+  .gridmain{
+    font-size: smaller;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .gridmain{
+    font-size: larger;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .gridmain{
+    font-size: smaller;
   }
 }
 
