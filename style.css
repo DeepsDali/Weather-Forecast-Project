@@ -18,14 +18,11 @@ h4 {
 }
 /* background gradient */
 :root {
-  /* --col3: #c0a9b0; */
   --col3: #b1adf2;
   --col2: #6bbaec;
-
-  /* only using 2 and 3 so far */
-  --col1: #6987c9;
-  --col4: #bcc4db;
-  --col5: #7880b5;
+  --col1: #021057;
+  --col4: aliceblue;
+  --col5: rgba(0, 0, 0, 0.24);
 }
 
 body {

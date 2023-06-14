@@ -108,11 +108,27 @@ form.addEventListener("submit", async (event) => {
       for (let i = 1; i < 6; i++) {
         let weekday = date_arr[i - 1];
         weekday = new Date(weekday);
+
+        let weekdate = weekday.getDate()
+        if (weekdate==1 || weekdate==21 || weekdate==31){
+          weekdate = weekdate + "st"
+        } else if (weekdate==2 || weekdate==22){
+          weekdate = weekdate + "nd"
+        } else if (weekdate==3 || weekdate==23){
+          weekdate = weekdate + "rd"
+        }else {
+          weekdate = weekdate + "th"
+        }
+
         weekday = weekday.getDay();
         weekday = weekdays[weekday];
-        console.log(weekday);
 
         const day = document.createElement("div");
+
+        const forecast_date = document.createElement("h4");
+        forecast_date.className = "dateofweek";
+        forecast_date.textContent = `${weekdate}`;
+        day.appendChild(forecast_date);
 
         const forecast_day = document.createElement("h4");
         forecast_day.className = "dayofweek";
