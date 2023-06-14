@@ -192,6 +192,7 @@ main > section {
     font-weight: bold;
   }
   .dateofweek {
+    padding-top:12px;
     font-size: 0.8em;
   }
   .maxtemp {
