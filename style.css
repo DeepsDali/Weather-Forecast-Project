@@ -16,6 +16,12 @@ h4 {
   width: 4em;
   height: 4em;
 }
+.invalid-message {
+  color: var(--col1);
+  padding: 15px;
+  display: none;
+  font-weight: bold;
+}
 /* background gradient */
 :root {
   --col3: #b1adf2;
