@@ -1,6 +1,7 @@
 import { getLongLat } from "./utils/getLongLat.js";
 import { getLocation } from "./utils/getLocation.js";
 import { getMap } from "./utils/getMap.js";
+import { getMessage } from "./utils/getMessage.js";
 
 const form = document.querySelector("form");
 const place = document.querySelector("#county-post");
@@ -10,6 +11,7 @@ const current = document.querySelector("#current");
 const currentsun = document.querySelector("#currentsun");
 const currSunrise = document.querySelector("#current-sunrise");
 const currSunset = document.querySelector("#current-sunset");
+const forecastMessage = document.querySelector(".forecast-message");
 const invalidMessage = document.querySelector(".invalid-message");
 
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -85,6 +87,9 @@ form.addEventListener("submit", async (event) => {
         currentsun.innerHTML = "";
         currSunrise.innerHTML = "";
         currSunset.innerHTML = "";
+
+        const message = await getMessage(current_temp_code);
+        forecastMessage.textContent = `Today's forecast : ${message}`;
 
         const temperatureHeading = document.createElement("h3");
         temperatureHeading.textContent = `${current_temp}°`;
