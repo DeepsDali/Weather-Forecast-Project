@@ -75,8 +75,8 @@ main > section {
   /* max-width: 373px;
   max-height: 373px; */
   border-radius: 20px;
-  border: solid 4px;
-  border-color: var(--col1);
+  /* border: solid 4px; */
+  /* border-color: var(--col1); */
   width: 90vw;
   box-shadow: var(--col5) 0px 3px 8px;
 }
