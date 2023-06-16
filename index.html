@@ -15,11 +15,11 @@
   <body>
     <div class="grid-container">
       <header class="header">
-        <h1>TD Weather App</h1>
+        <h1><span class="logo">TD</span> Weather </h1>
       </header>
       <main>
         <section tabindex="0" id="search-section" class="inputgrid stack-m">
-          <form
+           <form
             action=""
             method="POST"
             id="form"
@@ -35,15 +35,20 @@
               required
               placeholder="Enter postcode e.g SW1A 2AA"
             />
-            <button type="submit" id="submit-btn" class="">Search</button>
+            <button type="submit" id="submit-btn" class="btn">Search</button>
           </form>
+       
+          <div class="invalid-message-container">
+            <p class="invalid-message" >No results found.<br><br>  Try postcode format "SW1A 2AA".</p>
+          </div>
         </section>
-
+      
         <section class="placegrid" id="location-name">
           <div id="county-post">
-            <p id="county"></p>
-            <p id="post-code"></p>
+            <h3 id="county"></h3>
+            <h3 id="post-code"></h3>
           </div>
+          <p class="forecast-message"></p>
         </section>
 
         <section class="tempnowgrid" id="weather-today">

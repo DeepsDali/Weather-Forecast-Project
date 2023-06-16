@@ -28,9 +28,11 @@ export const getMap = async (lat, lon) => {
     }
   } catch (error) {
     if (error.message === "404") {
-      console.log(`⚠️ Couldn't find "${x} and ${y}"`);
+      console.error(`⚠️ Couldn't find "${x} and ${y}"`);
+      throw new NotFoundError(); // Custom error type for 404 Not Found
     } else {
-      console.log("⚠️ Something went wrong");
+      console.error("⚠️ Something went wrong");
+      throw new Error("Failed to fetch map");
     }
   }
-};
+  };

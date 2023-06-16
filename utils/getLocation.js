@@ -13,6 +13,12 @@ export const getLocation = async (postcode) => {
       throw new Error(response.status);
     }
   } catch (error) {
-    console.log(error);
+    if (error.message === "404") {
+      console.error(`⚠️ Couldn't find "${postcode}"`);
+      throw new NotFoundError();
+    } else {
+      console.error("⚠️ Something went wrong");
+      throw new Error("Failed to location");
+    }
   }
 };
