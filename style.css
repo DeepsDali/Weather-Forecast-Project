@@ -1,16 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Francois+One&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
   font-size: 2em;
+  padding: 30px;
+  font-family: "Francois One", sans-serif;
+  color: var(--col3);
 }
 
 h4 {
   font-weight: 100;
+}
+p {
+  /* color: var(--col4); */
+  padding: 5px;
 }
 .icon {
   width: 4em;
@@ -22,9 +33,27 @@ h4 {
   display: none;
   font-weight: bold;
 }
+.forecast-message {
+  display: flex;
+  justify-content: start;
+  padding: 10px 0;
+  color: var(--col4);
+  font-size: 1.3em;
+  font-weight: lighter;
+}
+.logo {
+  font-size: 1.2em;
+  background-color: var(--col1);
+  color: var(--col3);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* box-shadow: var(--col3) 0px 3px 8px; */
+}
+
 /* background gradient */
 :root {
-  --col3: #b1adf2;
+  --col3: #cac8f3;
   --col2: #6bbaec;
   --col1: #021057;
   --col4: aliceblue;
@@ -33,7 +62,15 @@ h4 {
 
 body {
   background: var(--col3);
-  background: -webkit-gradient(
+  background-image: linear-gradient(
+      rgba(6, 3, 69, 0.753),
+      rgba(169, 198, 241, 0.571)
+    ),
+    url("https://images.immediate.co.uk/production/volatile/sites/25/2023/02/why-sky-blue-2db86ae.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  /* background: -webkit-gradient(
     linear,
     left top,
     left bottom,
@@ -45,5 +82,5 @@ body {
   background: -ms-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
   background: -o-linear-gradient(top, var(--col3) 0%, var(--col2) 100%);
   background: linear-gradient(to bottom, var(--col3) 0%, var(--col2) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--col3), endColorstr=var(--col2),GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=var(--col3), endColorstr=var(--col2),GradientType=0 ); */
 }

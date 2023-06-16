@@ -33,7 +33,13 @@ form.addEventListener("submit", async (event) => {
 
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode");
+  let capsPC = searchedPostcode.toUpperCase();
 
+  if (capsPC.length >= 3) {
+    const lastThreeChars = capsPC.slice(-3);
+    const beforeLastThreeChars = capsPC.slice(0, -3);
+    capsPC = beforeLastThreeChars + " " + lastThreeChars;
+  }
   form.reset();
 
   try {
@@ -48,7 +54,7 @@ form.addEventListener("submit", async (event) => {
       const location = await getLocation(searchedPostcode);
       let loc = location.admin_district;
       county.textContent = loc;
-      output.textContent = searchedPostcode;
+      output.textContent = capsPC;
       const coordinates = await getLongLat(searchedPostcode);
       let lat = coordinates.latitude;
       let lon = coordinates.longitude;

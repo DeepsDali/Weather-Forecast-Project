@@ -17,63 +17,63 @@
   },
   {
     "code": 45,
-    "description": "Fog and depositing rime fog"
+    "description": "Fog"
   },
   {
     "code": 48,
-    "description": "Fog and depositing rime fog"
+    "description": "Fog"
   },
   {
     "code": 51,
-    "description": "Drizzle: Light intensity"
+    "description": "Light Drizzle"
   },
   {
     "code": 53,
-    "description": "Drizzle: Moderate intensity"
+    "description": "Moderate Drizzle"
   },
   {
     "code": 55,
-    "description": "Drizzle: Dense intensity"
+    "description": "Dense Drizzle"
   },
   {
     "code": 56,
-    "description": "Freezing Drizzle: Light intensity"
+    "description": "Light Freezing Drizzle"
   },
   {
     "code": 57,
-    "description": "Freezing Drizzle: Dense intensity"
+    "description": "Dense Freezing Drizzle"
   },
   {
     "code": 61,
-    "description": "Rain: Slight intensity"
+    "description": "Rain-Slight intensity"
   },
   {
     "code": 63,
-    "description": "Rain: Moderate intensity"
+    "description": "Rain-Moderate intensity"
   },
   {
     "code": 65,
-    "description": "Rain: Heavy intensity"
+    "description": "Rain-Heavy intensity"
   },
   {
     "code": 66,
-    "description": "Freezing Rain: Light intensity"
+    "description": "Freezing Rain-Light intensity"
   },
   {
     "code": 67,
-    "description": "Freezing Rain: Heavy intensity"
+    "description": "Freezing Rain-Heavy intensity"
   },
   {
     "code": 71,
-    "description": "Snowfall: Slight intensity"
+    "description": "Snowfall-Slight intensity"
   },
   {
     "code": 73,
-    "description": "Snowfall: Moderate intensity"
+    "description": "Snowfall-Moderate intensity"
   },
   {
     "code": 75,
-    "description": "Snowfall: Heavy intensity"
+    "description": "Snowfall-Heavy intensity"
   },
   {
     "code": 77,
@@ -81,27 +81,27 @@
   },
   {
     "code": 80,
-    "description": "Rain showers: Slight intensity"
+    "description": "Rain showers-Slight intensity"
   },
   {
     "code": 81,
-    "description": "Rain showers: Moderate intensity"
+    "description": "Rain showers-Moderate intensity"
   },
   {
     "code": 82,
-    "description": "Rain showers: Violent intensity"
+    "description": "Violent Rain showers"
   },
   {
     "code": 85,
-    "description": "Snow showers: Slight intensity"
+    "description": "Slight Snow showers"
   },
   {
     "code": 86,
-    "description": "Snow showers: Heavy intensity"
+    "description": "Heavy Snow showers"
   },
   {
     "code": 95,
-    "description": "Thunderstorm: Slight or moderate"
+    "description": "Thunderstorm-Slight or moderate"
   },
   {
     "code": 96,
