@@ -1,6 +1,6 @@
 # Weather Info App
 
-Welcome to the Weather Info App repository! This app provides weather information based on your local postcode. It utilizes two APIs, a weather API and a postcode API, to fetch the required data and update the DOM accordingly. The app allows users to search for weather information, filter the results, and view the app on different devices.
+Welcome to the Weather Forecast Project repository, containing our app TD Weather! This app provides weather information based on your local postcode. It utilizes two APIs, a open-meteo.com and a postcodes.io, to fetch the required data and update the DOM accordingly. The app allows users to search for weather information and view the app on different devices.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Welcome to the Weather Info App repository! This app provides weather informatio
 
 ## User Stories <a name="user-stories"></a>
 
-As a user of the Weather Info App, I want the following features:
+As a user of the TD Weather App, I want the following features:
 
 - **Core Stories**
 
@@ -24,10 +24,10 @@ As a user of the Weather Info App, I want the following features:
   - Input my postcode to change the displayed weather information.
   - View the app on all of my devices.
 
-- **Stretch Stories**
+<!-- - **Stretch Stories**
 
   - See a loading indicator when data is being fetched.
-  - Receive error messages when something goes wrong.
+  - Receive error messages when something goes wrong. -->
 
 ## Acceptance Criteria <a name="acceptance-criteria"></a>
 
@@ -39,27 +39,26 @@ As a user of the Weather Info App, I want the following features:
 
 ## APIs Used <a name="apis-used"></a>
 
-The Weather Info App utilizes the following APIs:
+The TD Weather App utilizes the following APIs:
 
-- **Weather API**: This API provides weather data based on the user's local postcode. It returns information such as temperature, weather conditions, humidity, wind speed, etc.
+- **Weather API: open-meteo.com**: This API provides weather data based on the user's local postcode. It returns information such as temperature, weather conditions, sunrise, wind speed, etc.
 
-- **Postcode API**: This API allows the app to convert the user's input postcode into geographic coordinates (latitude and longitude). The coordinates are used to fetch weather data for the specific location.
+- **Postcode API: postcodes.io**: This API allows the app to convert the user's input postcode into geographic coordinates (latitude and longitude). The coordinates are used to fetch weather data for the specific location.
 
-Please note that some APIs may require an API key or token for authentication. Ensure that you follow the API provider's guidelines for obtaining and using the API key.
 
 ## Installation <a name="installation"></a>
 
-To run the Weather Info App locally, follow these steps:
+To run the TD Weather App locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/weather-info-app.git`
 2. Navigate to the project directory: `cd weather-info-app`
 3. Open the `index.html` file in your preferred web browser.
 
-That's it! You can now use the Weather Info App to retrieve weather information based on your local postcode.
+That's it! You can now use the TD Weather App to retrieve weather information based on your local postcode.
 
 ## Technologies Used <a name="technologies-used"></a>
 
-The Weather Info App is built using the following technologies:
+The TD Weather App is built using the following technologies:
 
 - **HTML**: Markup language for creating the structure of the app.
 - **CSS**: Styling language for designing the visual appearance of the app.
@@ -69,7 +68,7 @@ The Weather Info App is built using the following technologies:
 
 1. When the app loads, the user is presented with a search input field and a submit button.
 2. The user enters their postcode in the search input field.
-3. Upon submitting the form, the app queries the postcode API to convert the postcode into geographic coordinates (latitude and longitude).
+3. Upon submitting the postcode, the app queries the postcode API to convert the postcode into geographic coordinates (latitude and longitude).
 4. The app then uses the coordinates to fetch weather data from the weather API.
 5. The received weather data is dynamically displayed in the app, including temperature, weather conditions, humidity, wind speed, etc.
 6. The user can input a new postcode at any time to fetch weather information for a different location.
@@ -78,12 +77,12 @@ The Weather Info App is built using the following technologies:
 
 ## Authors <a name="authors"></a>
 
-This project was created and maintained by [Your Name](https://github.com/your-username). Please feel free to contact me if you have any questions or suggestions regarding the Weather Info App.
+This project was created and maintained by [Deepashri Dali](https://github.com/DeepsDali) and [Tess Phillips](https://github.com/tess-phillips) Please feel free to contact us if you have any questions or suggestions regarding the TD Weather App.
 
 ## Contributing <a name="contributing"></a>
 
-Contributions to the Weather Info App are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+Contributions to the TD Weather App are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 ## License <a name="license"></a>
 
-The Weather Info App is open source and released under the [MIT License](https://mit-license.org/). You are free to use, modify, and distribute the code as needed.
+The TD Weather App is open source and released under the [MIT License](https://mit-license.org/). You are free to use, modify, and distribute the code as needed.
