@@ -3,7 +3,9 @@ import { getLocation } from "./utils/api/getLocation.js";
 import { getMap } from "./utils/api/getMap.js";
 import { getMessage } from "./utils/api/getMessage.js";
 import { appendElements } from "./utils/helpers/appendElements.js";
-
+import { getFormattedWeekdate } from "./utils/helpers/getFormattedWeekDate.js";
+import { showBufferingOverlay } from "./utils/helpers/showBufferingOverlay.js";
+import { hideBufferingOverlay } from "./utils/helpers/hideBufferingOverlay.js";
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
@@ -181,28 +183,4 @@ function createImageElement(tagName, src) {
   image.classList.add("icon");
   image.src = src;
   return image;
-}
-
-function getFormattedWeekdate(weekday) {
-  const date = new Date().getDate();
-  const suffix =
-    date === 1 || date === 21 || date === 31
-      ? "st"
-      : date === 2 || date === 22
-      ? "nd"
-      : date === 3 || date === 23
-      ? "rd"
-      : "th";
-
-  return `${date}${suffix}`;
-}
-
-function showBufferingOverlay() {
-  bufferingOverlay.style.display = "flex";
-  bufferingContent.classList.add("buffering");
-}
-
-function hideBufferingOverlay() {
-  bufferingOverlay.style.display = "none";
-  bufferingContent.classList.remove("buffering");
 }
