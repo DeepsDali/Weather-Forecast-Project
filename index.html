@@ -14,21 +14,21 @@
     <title>TD Weather App</title>
   </head>
   <body>
-    <div id="buffering-overlay">
-      <div class="buffering-content spinner"></div> 
+    <div id="buffering-overlay" role="status" aria-hidden="true">
+      <div class="buffering-content spinner" aria-hidden="true"></div> 
     </div>
     <div class="grid-container">
       <header class="header">
         <h1><span class="logo">TD</span> Weather </h1>
       </header>
       <main>
-        <section tabindex="0" id="search-section" class="inputgrid stack-m">
-           <form
+        <section tabindex="0" id="search-section" class="inputgrid stack-m" aria-label="Search">
+          <form
             action=""
             method="POST"
             id="form"
             class=""
-            aria-label="search bar"
+            aria-label="Search bar"
             tabindex="0"
           >
             <label for="postcode"></label>
@@ -43,11 +43,11 @@
           </form>
        
           <div class="invalid-message-container">
-            <p class="invalid-message" >No results found.<br><br>  Try postcode format "SW1A 2AA".</p>
+            <p class="invalid-message">No results found.<br><br>  Try postcode format "SW1A 2AA".</p>
           </div>
         </section>
       
-        <section class="placegrid" id="location-name">
+        <section class="placegrid" id="location-name" aria-label="Location Information">
           <div id="county-post">
             <h3 id="county"></h3>
             <h3 id="post-code"></h3>
@@ -55,18 +55,18 @@
           <p class="forecast-message"></p>
         </section>
 
-        <section class="tempnowgrid" id="weather-today">
+        <section class="tempnowgrid" id="weather-today" aria-label="Current Weather">
           <div id="current"></div>
         </section>
 
-        <section class="sungrid" id="sun-today">
+        <section class="sungrid" id="sun-today" aria-label="Todays Sunrise and Sunset">
           <div id="currentsun">
             <div id="current-sunrise"></div>
             <div id="current-sunset"></div>
           </div>
         </section>
 
-        <section class="foregrid gridmain" id="weather-forecast">
+        <section class="foregrid gridmain" id="weather-forecast" aria-label="5 Day Weather Forecast">
           <div class="foreday" id="day1"></div>
           <div class="foreday" id="day2"></div>
           <div class="foreday" id="day3"></div>
@@ -75,12 +75,10 @@
           <div class="foreday" id="day6"></div>
           <div class="foreday" id="day7"></div>
         </section>
-        <section class="mapgrid" id="location"></section>
-        <!-- <section class="else"> -->
-          <!-- <p>space for something else</p> -->
+        <section class="mapgrid" id="location" aria-label="Map"></section>
         </section>
       </main>
-      <footer tabindex="0" class="footer column stack-l">
+      <footer tabindex="0" class="footer column stack-l" aria-label="Footer">
         <p>Copyright @ 2023 <br><br>Tess Phillips & Deepashri Dali</p>
       </footer>
     </div>
