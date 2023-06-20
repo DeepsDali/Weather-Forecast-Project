@@ -10,6 +10,10 @@
   min-height: 100vh;
   width: 100%;
 }
+/* to be used for buffering */
+/* .placegrid,.tempnowgrid,.sungrid,.forehead,#weather-forecast,.mapgrid{
+  display:none;
+} */
 
 .grid-container > footer,
 .grid-container > header {
