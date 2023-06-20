@@ -33,11 +33,16 @@ form.addEventListener("submit", async (event) => {
   showBufferingOverlay();
 
   const formData = new FormData(form);
-  const searchedPostcode = formData.get("postcode").toUpperCase().replace(/(\d{3})$/, " $1");
+  const searchedPostcode = formData
+    .get("postcode")
+    .toUpperCase()
+    .replace(/(\d{3})$/, " $1");
   form.reset();
 
   try {
-    const validateResultFetch = await fetch(`https://api.postcodes.io/postcodes/${searchedPostcode}/validate`);
+    const validateResultFetch = await fetch(
+      `https://api.postcodes.io/postcodes/${searchedPostcode}/validate`
+    );
     const validateResult = await validateResultFetch.json();
 
     if (!validateResult.result) {
@@ -58,7 +63,7 @@ form.addEventListener("submit", async (event) => {
         current_weather: {
           temperature: current_temp,
           weathercode: current_temp_code,
-          windspeed: current_windSpeed
+          windspeed: current_windSpeed,
         },
         daily: {
           sunrise: s_rise,
@@ -66,8 +71,8 @@ form.addEventListener("submit", async (event) => {
           temperature_2m_max: fore_max,
           temperature_2m_min: fore_min,
           weathercode: fore_code,
-          time: date_arr
-        }
+          time: date_arr,
+        },
       } = resData;
 
       invalidMessage.style.display = "none";
@@ -90,20 +95,40 @@ form.addEventListener("submit", async (event) => {
       forecastMessage.textContent = `Today's forecast: ${message}`;
 
       const temperatureHeading = createHeadingElement("h3", `${current_temp}°`);
-      const windSpeedHeading = createHeadingElement("h3", `${current_windSpeed} km/h`);
-      const current_icon = createImageElement("img", `./icons/${current_temp_code}.svg`);
-      const wind_icon = createImageElement("img", `./icons/wind.svg`);
-      const sunrise = createHeadingElement("h3", s_rise[0].split("T")[1].slice(0, 5));
-      const sunrise_icon = createImageElement("img", `./icons/sunrise.svg`);
-      const sunset = createHeadingElement("h3", s_set[0].split("T")[1].slice(0, 5));
-      const sunset_icon = createImageElement("img", `./icons/sunset.svg`);
+      const windSpeedHeading = createHeadingElement(
+        "h3",
+        `${current_windSpeed} km/h`
+      );
+      const current_icon = createImageElement(
+        "img",
+        `./utils/icons/${current_temp_code}.svg`
+      );
+      const wind_icon = createImageElement("img", `./utils/icons/wind.svg`);
+      const sunrise = createHeadingElement(
+        "h3",
+        s_rise[0].split("T")[1].slice(0, 5)
+      );
+      const sunrise_icon = createImageElement(
+        "img",
+        `./utils/icons/sunrise.svg`
+      );
+      const sunset = createHeadingElement(
+        "h3",
+        s_set[0].split("T")[1].slice(0, 5)
+      );
+      const sunset_icon = createImageElement("img", `./utils/icons/sunset.svg`);
 
       current.innerHTML = "";
       currentsun.innerHTML = "";
       currSunrise.innerHTML = "";
       currSunset.innerHTML = "";
 
-      appendElements(current, [current_icon, temperatureHeading, wind_icon, windSpeedHeading]);
+      appendElements(current, [
+        current_icon,
+        temperatureHeading,
+        wind_icon,
+        windSpeedHeading,
+      ]);
       appendElements(currentsun, [currSunrise, currSunset]);
       appendElements(currSunrise, [sunrise_icon, sunrise]);
       appendElements(currSunset, [sunset_icon, sunset]);
@@ -111,7 +136,10 @@ form.addEventListener("submit", async (event) => {
       for (let i = 1; i < 6; i++) {
         const weekday = new Date(date_arr[i - 1]).getDay();
         const weekdate = getFormattedWeekdate(weekday);
-        const forecast_icon = createImageElement("img", `./icons/${fore_code[i - 1]}.svg`);
+        const forecast_icon = createImageElement(
+          "img",
+          `./utils/icons/${fore_code[i - 1]}.svg`
+        );
         const forecast_max = createHeadingElement("h4", `${fore_max[i - 1]}°`);
         const forecast_min = createHeadingElement("h4", `${fore_min[i - 1]}°`);
 
@@ -119,7 +147,13 @@ form.addEventListener("submit", async (event) => {
         const forecast_date = createHeadingElement("h4", weekdate);
         const forecast_day = createHeadingElement("h4", weekdays[weekday]);
 
-        appendElements(day, [forecast_date, forecast_day, forecast_icon, forecast_max, forecast_min]);
+        appendElements(day, [
+          forecast_date,
+          forecast_day,
+          forecast_icon,
+          forecast_max,
+          forecast_min,
+        ]);
         document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
       }
