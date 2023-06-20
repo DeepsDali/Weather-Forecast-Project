@@ -128,6 +128,7 @@ main > section {
   font-size: 1.2em;
   font-weight: light;
 }
+
 /* placegrid */
 .placegrid {
   grid-area: placegrid;
@@ -149,9 +150,6 @@ main > section {
 /* tempnowgrid */
 .tempnowgrid {
   grid-area: tempnowgrid;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 #current {
   background-color: var(--col1);
@@ -215,13 +213,20 @@ main > section {
     font-size: 1.1em;
   }
 }
-
+/* .placegrid,.tempnowgrid,.sungrid{
+  display:none;
+} */
 .gridmain {
   font-size: larger;
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
   .gridmain {
     font-size: smaller;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .gridmain {
+    font-size: xx-small;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -232,6 +237,7 @@ main > section {
 @media only screen and (max-width: 400px) {
   .gridmain {
     font-size: smaller;
+    color:yellow;
   }
 }
 
