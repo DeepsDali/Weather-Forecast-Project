@@ -122,7 +122,7 @@ form.addEventListener("submit", async (event) => {
         className: "icon",
         alt: "Sunrise icon",
       });
-      const sunset = createHeadingElement("h3", {
+      const sunset = createElement("h3", {
         textContent: s_set[0].split("T")[1].slice(0, 5),
       });
       const sunset_icon = createElement("img", {
@@ -149,11 +149,11 @@ form.addEventListener("submit", async (event) => {
       for (let i = 1; i < 6; i++) {
         const weekday = new Date(date_arr[i - 1]).getDay();
         const weekdate = getFormattedWeekdate(weekday);
-        const forecast_icon = createImageElement(
-          "img",
-          `./utils/icons/${fore_code[i - 1]}.svg`,
-          "icon"
-        );
+        const forecast_icon = createElement("img", {
+          src: `./utils/icons/${fore_code[i - 1]}.svg`,
+          className: "icon",
+          alt: "forecast icon",
+        });
         const forecast_max = createElement("h4");
         forecast_max.textContent = `${fore_max[i - 1]}°`;
 
