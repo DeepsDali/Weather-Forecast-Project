@@ -6,8 +6,6 @@ export const getLocation = async (postcode) => {
     if (response.ok) {
       const data = await response.json();
       const { admin_district } = data.result;
-      console.log(admin_district);
-
       return { admin_district };
     } else {
       throw new Error(response.status);

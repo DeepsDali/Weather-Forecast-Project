@@ -5,3 +5,8 @@ export const showBufferingOverlay = () => {
   bufferingOverlay.style.display = "flex";
   bufferingContent.classList.add("buffering");
 };
+
+export const hideBufferingOverlay = () => {
+  bufferingOverlay.style.display = "none";
+  bufferingContent.classList.remove("buffering");
+};

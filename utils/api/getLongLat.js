@@ -6,8 +6,6 @@ export const getLongLat = async (postcode) => {
     if (response.ok) {
       const data = await response.json();
       const { latitude, longitude } = data.result;
-      console.log(latitude);
-      console.log(longitude);
       return { latitude, longitude };
     } else {
       throw new Error(response.status);
