@@ -172,9 +172,6 @@ main > section {
 
 /* forecast */
 .gridmain {
-  /* max-width: 373px;
-  max-height: 373px;
-  margin:auto; */
   display: grid;
   width: 90vw;
   grid-template-areas: "forehead forehead forehead forehead forehead ";
