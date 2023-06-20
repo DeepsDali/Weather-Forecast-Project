@@ -6,6 +6,7 @@ import { createElement, appendElements } from "./helpers/handleElements.js";
 import { getMessage } from "./api/getMessage.js";
 import { handleApiRequests } from "./handleApiRequests.js";
 import { generateForecast } from "./generateForecast.js";
+import { generateSun } from "./generateSun.js";
 
 export const submitEventListener = () => {
   const form = document.querySelector("form");
@@ -81,7 +82,7 @@ export const submitEventListener = () => {
 
         image = newImage;
         mapDiv.appendChild(newImage);
-
+        //current
         const temperatureHeading = createElement("h3", {
           textContent: `${current_temp}°`,
         });
@@ -100,39 +101,15 @@ export const submitEventListener = () => {
           className: "icon",
           alt: "Wind speed con",
         });
-        const sunrise = createElement("h3", {
-          textContent: s_rise[0].split("T")[1].slice(0, 5),
-        });
-
-        const sunrise_icon = createElement("img", {
-          src: `./utils/icons/sunrise.svg`,
-          className: "icon",
-          alt: "Sunrise icon",
-        });
-        const sunset = createElement("h3", {
-          textContent: s_set[0].split("T")[1].slice(0, 5),
-        });
-        const sunset_icon = createElement("img", {
-          src: `./utils/icons/sunset.svg`,
-          className: "icon",
-          alt: "Sunset icon",
-        });
-
         current.innerHTML = "";
-        currentsun.innerHTML = "";
-        currSunrise.innerHTML = "";
-        currSunset.innerHTML = "";
-
         appendElements(current, [
           current_icon,
           temperatureHeading,
           wind_icon,
           windSpeedHeading,
         ]);
-        appendElements(currentsun, [currSunrise, currSunset]);
-        appendElements(currSunrise, [sunrise_icon, sunrise]);
-        appendElements(currSunset, [sunset_icon, sunset]);
 
+        generateSun(s_rise, s_set, currentsun, currSunrise, currSunset);
         generateForecast(date_arr, fore_code, fore_max, fore_min);
         hideBufferingOverlay();
       } else {
