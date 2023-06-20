@@ -6,6 +6,7 @@ import { appendElements } from "./utils/helpers/appendElements.js";
 import { getFormattedWeekdate } from "./utils/helpers/getFormattedWeekDate.js";
 import { showBufferingOverlay } from "./utils/helpers/showBufferingOverlay.js";
 import { hideBufferingOverlay } from "./utils/helpers/hideBufferingOverlay.js";
+import { createElement } from "./utils/helpers/createElement.js";
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
@@ -15,10 +16,7 @@ const currSunrise = document.querySelector("#current-sunrise");
 const currSunset = document.querySelector("#current-sunset");
 const forecastMessage = document.querySelector(".forecast-message");
 const invalidMessage = document.querySelector(".invalid-message");
-
-const bufferingOverlay = document.querySelector("#buffering-overlay");
-const bufferingContent = document.querySelector(".buffering-content");
-
+const mapDiv = document.querySelector("#location");
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 let image = null;
@@ -81,11 +79,11 @@ form.addEventListener("submit", async (event) => {
       invalidMessage.style.display = "none";
       county.textContent = location.admin_district;
       output.textContent = searchedPostcode;
-      const mapDiv = document.querySelector("#location");
-      const newImage = document.createElement("img");
-      newImage.classList.add("map-image");
-      newImage.src = imageURL;
-      newImage.alt = "map of searched postcode";
+      const newImage = createElement("img", {
+        src: `${imageURL}`,
+        className: "map-image",
+        alt: "map of searched postcode",
+      });
 
       if (image) {
         mapDiv.removeChild(image);
@@ -97,29 +95,41 @@ form.addEventListener("submit", async (event) => {
       const message = await getMessage(current_temp_code);
       forecastMessage.textContent = `Today's forecast: ${message}`;
 
-      const temperatureHeading = createHeadingElement("h3", `${current_temp}°`);
-      const windSpeedHeading = createHeadingElement(
-        "h3",
-        `${current_windSpeed} km/h`
-      );
-      const current_icon = createImageElement(
-        "img",
-        `./utils/icons/${current_temp_code}.svg`
-      );
-      const wind_icon = createImageElement("img", `./utils/icons/wind.svg`);
-      const sunrise = createHeadingElement(
-        "h3",
-        s_rise[0].split("T")[1].slice(0, 5)
-      );
-      const sunrise_icon = createImageElement(
-        "img",
-        `./utils/icons/sunrise.svg`
-      );
-      const sunset = createHeadingElement(
-        "h3",
-        s_set[0].split("T")[1].slice(0, 5)
-      );
-      const sunset_icon = createImageElement("img", `./utils/icons/sunset.svg`);
+      const temperatureHeading = createElement("h3", {
+        textContent: `${current_temp}°`,
+      });
+      const windSpeedHeading = createElement("h3", {
+        textContent: `${current_windSpeed} km/h`,
+      });
+
+      const current_icon = createElement("img", {
+        src: `./utils/icons/${current_temp_code}.svg`,
+        className: "icon",
+        alt: "forecast icon",
+      });
+
+      const wind_icon = createElement("img", {
+        src: `./utils/icons/wind.svg`,
+        className: "icon",
+        alt: "Wind speed con",
+      });
+      const sunrise = createElement("h3", {
+        textContent: s_rise[0].split("T")[1].slice(0, 5),
+      });
+
+      const sunrise_icon = createElement("img", {
+        src: `./utils/icons/sunrise.svg`,
+        className: "icon",
+        alt: "Sunrise icon",
+      });
+      const sunset = createHeadingElement("h3", {
+        textContent: s_set[0].split("T")[1].slice(0, 5),
+      });
+      const sunset_icon = createElement("img", {
+        src: `./utils/icons/sunset.svg`,
+        className: "icon",
+        alt: "Sunset icon",
+      });
 
       current.innerHTML = "";
       currentsun.innerHTML = "";
@@ -141,14 +151,22 @@ form.addEventListener("submit", async (event) => {
         const weekdate = getFormattedWeekdate(weekday);
         const forecast_icon = createImageElement(
           "img",
-          `./utils/icons/${fore_code[i - 1]}.svg`
+          `./utils/icons/${fore_code[i - 1]}.svg`,
+          "icon"
         );
-        const forecast_max = createHeadingElement("h4", `${fore_max[i - 1]}°`);
-        const forecast_min = createHeadingElement("h4", `${fore_min[i - 1]}°`);
+        const forecast_max = createElement("h4");
+        forecast_max.textContent = `${fore_max[i - 1]}°`;
 
-        const day = document.createElement("div");
-        const forecast_date = createHeadingElement("h4", weekdate);
-        const forecast_day = createHeadingElement("h4", weekdays[weekday]);
+        const forecast_min = createElement("h4");
+        forecast_min.textContent = `${fore_min[i - 1]}°`;
+
+        const day = createElement("div");
+
+        const forecast_date = createElement("h4");
+        forecast_date.textContent = weekdate;
+
+        const forecast_day = createElement("h4");
+        forecast_day.textContent = weekdays[weekday];
 
         appendElements(day, [
           forecast_date,
