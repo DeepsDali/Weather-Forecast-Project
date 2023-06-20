@@ -1,7 +1,8 @@
-import { getLongLat } from "./utils/getLongLat.js";
-import { getLocation } from "./utils/getLocation.js";
-import { getMap } from "./utils/getMap.js";
-import { getMessage } from "./utils/getMessage.js";
+import { getLongLat } from "./utils/api/getLongLat.js";
+import { getLocation } from "./utils/api/getLocation.js";
+import { getMap } from "./utils/api/getMap.js";
+import { getMessage } from "./utils/api/getMessage.js";
+import { appendElements } from "./utils/helpers/appendElements.js";
 
 const form = document.querySelector("form");
 const output = document.querySelector("#post-code");
@@ -180,10 +181,6 @@ function createImageElement(tagName, src) {
   image.classList.add("icon");
   image.src = src;
   return image;
-}
-
-function appendElements(parent, elements) {
-  elements.forEach((element) => parent.appendChild(element));
 }
 
 function getFormattedWeekdate(weekday) {
