@@ -14,6 +14,9 @@ const currSunset = document.querySelector("#current-sunset");
 const forecastMessage = document.querySelector(".forecast-message");
 const invalidMessage = document.querySelector(".invalid-message");
 
+const bufferingOverlay = document.querySelector("#buffering-overlay");
+const bufferingContent = document.querySelector(".buffering-content");
+
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 let image = null;
@@ -27,6 +30,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  showBufferingOverlay();
 
   const formData = new FormData(form);
   const searchedPostcode = formData.get("postcode").toUpperCase().replace(/(\d{3})$/, " $1");
@@ -119,6 +124,7 @@ form.addEventListener("submit", async (event) => {
         document.querySelector(`#day${i}`).innerHTML = "";
         document.querySelector(`#day${i}`).appendChild(day);
       }
+      hideBufferingOverlay();
     } else {
       throw new Error(response.status);
     }
@@ -126,6 +132,7 @@ form.addEventListener("submit", async (event) => {
     if (invalidMessage) {
       invalidMessage.style.display = "block";
     }
+    hideBufferingOverlay();
   }
 });
 
@@ -158,4 +165,14 @@ function getFormattedWeekdate(weekday) {
       : "th";
 
   return `${date}${suffix}`;
+}
+
+function showBufferingOverlay() {
+  bufferingOverlay.style.display = "flex";
+  bufferingContent.classList.add("buffering");
+}
+
+function hideBufferingOverlay() {
+  bufferingOverlay.style.display = "none";
+  bufferingContent.classList.remove("buffering");
 }

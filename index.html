@@ -10,9 +10,14 @@
     <meta name="description" content="Weather App" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./grid.css" />
+    <link rel="stylesheet" href="./buffering.css" />
     <title>TD Weather App</title>
   </head>
   <body>
+    <div id="buffering-overlay">
+      <!-- maybe also class spinnner? -->
+      <div class="buffering-content spinner"></div> 
+    </div>
     <div class="grid-container">
       <header class="header">
         <h1><span class="logo">TD</span> Weather </h1>
