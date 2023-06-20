@@ -50,8 +50,8 @@ The TD Weather App utilizes the following APIs:
 
 To run the TD Weather App locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/weather-info-app.git`
-2. Navigate to the project directory: `cd weather-info-app`
+1. Clone the repository: `git clone https://github.com/your-username/weather-forecast-project.git`
+2. Navigate to the project directory: `cd weather-forecast-project`
 3. Open the `index.html` file in your preferred web browser.
 
 That's it! You can now use the TD Weather App to retrieve weather information based on your local postcode.

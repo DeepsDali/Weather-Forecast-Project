@@ -4,7 +4,6 @@ import { getMap } from "./utils/getMap.js";
 import { getMessage } from "./utils/getMessage.js";
 
 const form = document.querySelector("form");
-const place = document.querySelector("#county-post");
 const output = document.querySelector("#post-code");
 const county = document.querySelector("#county");
 const current = document.querySelector("#current");
