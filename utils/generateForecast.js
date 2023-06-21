@@ -1,4 +1,4 @@
-import { getFormattedWeekdate } from "./helpers/getFormattedWeekDate.js";
+import { getFormattedWeekdate } from "./helpers/getFormattedWeekdate.js";
 import { createElement, appendElements } from "./helpers/handleElements.js";
 
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
