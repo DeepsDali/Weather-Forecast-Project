@@ -5,17 +5,32 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "Roboto", sans-serif;
 }
-
+:root {
+  --col3: #cac8f3;
+  --col2: #6bbaec;
+  --col1: #021057;
+  --col4: aliceblue;
+  --col5: rgba(0, 0, 0, 0.24);
+}
+body {
+  background: var(--col3);
+  background-image: linear-gradient(
+      rgba(6, 3, 69, 0.753),
+      rgba(169, 198, 241, 0.571)
+    ),
+    url("../utils/icons/peter-hulce-YYkvhwIgs3g-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
 h1 {
   font-size: 2em;
   padding: 30px;
   font-family: "Francois One", sans-serif;
   color: var(--col3);
 }
-
 h4 {
   font-weight: 100;
 }
@@ -47,27 +62,4 @@ p {
   border-radius: 10px;
   padding: 6px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  /* box-shadow: var(--col3) 0px 3px 8px; */
-}
-
-/* background gradient */
-:root {
-  --col3: #cac8f3;
-  --col2: #6bbaec;
-  --col1: #021057;
-  --col4: aliceblue;
-  --col5: rgba(0, 0, 0, 0.24);
-}
-
-body {
-  background: var(--col3);
-  background-image: linear-gradient(
-      rgba(6, 3, 69, 0.753),
-      rgba(169, 198, 241, 0.571)
-    ),
-    /* url("https://images.immediate.co.uk/production/volatile/sites/25/2023/02/why-sky-blue-2db86ae.jpg"); */
-      url("./icons/peter-hulce-YYkvhwIgs3g-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-x: hidden;
 }

@@ -1,6 +1,8 @@
-# Weather Info App
+# TD Weather App
 
-Welcome to the Weather Forecast Project repository, containing our app TD Weather! This app provides weather information based on your local postcode. It utilizes two APIs, a open-meteo.com and a postcodes.io, to fetch the required data and update the DOM accordingly. The app allows users to search for weather information and view the app on different devices.
+Our app is designed to be responsive and uses postcode to generate a map and accurate sunrise-sunset timings, as well as a comprehensive daily and 5-day weather forecast. To gather this information, our app integrates three APIs: open-meteo.com, postcodes.io, and thunderforest.com.
+
+<img width="100%" alt="Website" src="./utils/icons/site.png">
 
 ## Table of Contents
 
@@ -20,18 +22,18 @@ As a user of the TD Weather App, I want the following features:
 
 - **Core Stories**
 
-  - See an interesting mashup of weather data based on my local postcode.
-  - Input my postcode to change the displayed weather information.
-  - View the app on all of my devices.
+  - See an interesting mashup of weather data based on postcode.
+  - Input postcode to update the displayed weather information.
+  - View the app on all of devices.
 
-<!-- - **Stretch Stories**
+- **Stretch Stories**
 
   - See a loading indicator when data is being fetched.
-  - Receive error messages when something goes wrong. -->
+  - Receive error messages when an incorrect postcode is entered.
 
 ## Acceptance Criteria <a name="acceptance-criteria"></a>
 
-- The app should query at least two APIs using the fetch function.
+- The app should query at least three APIs using the fetch function.
 - The content displayed in the app should be dynamically generated with JavaScript.
 - The user journey should be clearly defined and documented in the README.md file.
 - The app should have a responsive, mobile-first design.
@@ -45,6 +47,7 @@ The TD Weather App utilizes the following APIs:
 
 - **Postcode API: postcodes.io**: This API allows the app to convert the user's input postcode into geographic coordinates (latitude and longitude). The coordinates are used to fetch weather data for the specific location.
 
+- **Map API: thunderforest.com**: This API allows the app to convert the user's input postcode into an image of a map for the specific location.
 
 ## Installation <a name="installation"></a>
 
@@ -55,6 +58,10 @@ To run the TD Weather App locally, follow these steps:
 3. Open the `index.html` file in your preferred web browser.
 
 That's it! You can now use the TD Weather App to retrieve weather information based on your local postcode.
+
+## Demo
+
+A live demo of the TD Weather is available [here](https://deepsdali.github.io/Weather-Forecast-Project/).
 
 ## Technologies Used <a name="technologies-used"></a>
 
